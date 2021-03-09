@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="3dcc565d-f6c8-47a0-bef9-ae45c7e50566" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8002/PeruGmoney/Service.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Service.wsdl" MetadataType="Wsdl" ID="7d963b93-575c-4bef-a3a6-0e18290830c7" SourceId="1" SourceUrl="http://localhost:8002/PeruGmoney/Service.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="ServiceQuery.wsdl" MetadataType="Wsdl" ID="e2529fce-505f-4d19-aef9-d9bfb02139eb" SourceId="1" SourceUrl="http://localhost:8002/PeruGmoney/Service.svc?wsdl" />
+    <MetadataFile FileName="Service.xsd" MetadataType="Schema" ID="3889dfcd-05ca-4d5b-ad57-047dc80a2045" SourceId="1" SourceUrl="http://localhost:8002/PeruGmoney/Service.svc?xsd=xsd1" />
+    <MetadataFile FileName="Service1.xsd" MetadataType="Schema" ID="0e3e5c1e-d8d7-46eb-bef9-f6cdb8524354" SourceId="1" SourceUrl="http://localhost:8002/PeruGmoney/Service.svc?xsd=xsd0" />
+    <MetadataFile FileName="Service2.xsd" MetadataType="Schema" ID="f92f5ab4-d2c5-41d7-bf8d-b27564e00b49" SourceId="1" SourceUrl="http://localhost:8002/PeruGmoney/Service.svc?xsd=xsd3" />
+    <MetadataFile FileName="Service3.xsd" MetadataType="Schema" ID="5e8f57cf-54b4-4846-b2a1-599d673bb27c" SourceId="1" SourceUrl="http://localhost:8002/PeruGmoney/Service.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

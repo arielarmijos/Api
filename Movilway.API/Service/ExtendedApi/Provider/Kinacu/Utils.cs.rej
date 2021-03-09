@@ -1,0 +1,126 @@
+diff a/Movilway.API/Service/ExtendedApi/Provider/Kinacu/Utils.cs b/Movilway.API/Service/ExtendedApi/Provider/Kinacu/Utils.cs	(rejected hunks)
+@@ -8283,52 +8283,85 @@
+                       //DISPOSITIVOS TEMPORALES
+                       //-LOS CREA SI NO EXISTEN
+                       //-LOS CAMBIA DE ESTADO DELETE DEVICE A TEMPORAL
+-                        mySqlCommand.CommandText = @"
+-
++                        String VALUES_DECLARATION, OPERATION, RESULT ;
++                        VALUES_DECLARATION = @"
++                                            -- OPERACION ES OK
++                                            DECLARE @OP_RESULT AS INT = 0
++
++                                            DECLARE @DEVICE_ID_DATA AS int 
++                                            DECLARE @STATUS_DATA AS smallint 
++                                            DECLARE @DATE_ACTIVATED_DATA AS datetime
+                                          
+-                                            IF(  @Status <> @STATUS_TEMP )
+-                                            BEGIN 
++                                           SELECT @DEVICE_ID_DATA  = DeviceId,@STATUS_DATA = Status, @DATE_ACTIVATED_DATA = DateActivated   FROM dbo.Device     WHERE Token =  @Token AND UserId =  @UserId
++
++                                           ";//);
++                        if (device.Status != cons.DEVICE_TEMPORAL)
++                        {
++
++
++                           OPERATION = @"   
++                                       
+                                                 -- si no es un estado temporal
+-                                                 IF (not EXISTS(  SELECT DeviceId FROM dbo.Device WHERE Token =  @Token AND UserId =  @UserId)) BEGIN 
+-                                                INSERT INTO [dbo].[Device]
+-                                                   ([UserId]
+-                                                   ,[Token]
+-                                                   ,[Hash]
+-                                                   ,[DeviceTypeId]
+-                                                   ,[FriendlyName]
+-                                                   ,[Description]
+-                                                   ,[DateActivated]
+-                                                   ,[Status]
+-                                                   ,[Model]
+-                                                   ,[OS])
+-                                                     VALUES
+-                                                   (@UserId, 
+-                                                    @Token,   
+-       	                                            @Hash,   
+-                                                    @DeviceTypeId, 
+-                                                    @FriendlyName,  
+-                                                    @Description,   
+-                                                    @DateActivated, 
+-                                                    @Status,
+-                                                    @Model,   
+-                                                    @OS);
+-													--SELECT DE LA RESPUESTA
+-													SELECT 0    
++           
++                                                 IF (@DEVICE_ID_DATA IS NULL) 
++                                                    BEGIN 
++                                                        INSERT INTO [dbo].[Device]
++                                                       ([UserId]
++                                                       ,[Token]
++                                                       ,[Hash]
++                                                       ,[DeviceTypeId]
++                                                       ,[FriendlyName]
++                                                       ,[Description]
++                                                       ,[DateActivated]
++                                                       ,[Status]
++                                                       ,[Model]
++                                                       ,[OS])
++                                                         VALUES
++                                                       (@UserId, 
++                                                        @Token,   
++       	                                                @Hash,   
++                                                        @DeviceTypeId, 
++                                                        @FriendlyName,  
++                                                        @Description,   
++                                                        @DateActivated, 
++                                                        @Status,
++                                                        @Model,   
++                                                        @OS);
++													     
+ 													END
++                                                    ELSE IF (@STATUS_DATA  = @DELETED)  
++                                                    BEGIN
++                                                       
++                                                        UPDATE [dbo].[Device]
++                                                        SET 
++                                                           [DeviceTypeId] = 	 @DeviceTypeId, 
++                                                           [FriendlyName] = 	 @FriendlyName, 
++                                                           [Description] = 		 @Description,  
++                                                           [DateActivated] = 	 @DateActivated,
++                                                           [Status] = 		 @Status,
++                                                           [Model] =	 	 @Model,   
++                                                           [OS] = 			 @OS
++                                                        WHERE  Token =  @Token AND UserId =  @UserId
++	                                                   
++                                                    END
+                                                     ELSE 
+-                                                       SELECT @MY_ERRORCODE    
+-
+-                                                 END 
+-
+-                                            ELSE
+-                                                BEGIN 
++                                                        -- ASIGNAR ERROR
++                                                         SET @OP_RESULT=  @MY_ERRORCODE  
++                                                    
++                                                 
++                                         
++                                            ";
++                        }
++                        else
++                        {
++                              OPERATION = @"   
++                                       
+                                               
+-                                                --si el verifica
+-                                                --TODO optimizar (hay dos selects)
+                                                 --AGREGA DISPOSITIVO TEMPORAL
+-                                                IF ( NOT EXISTS(SELECT DeviceId FROM dbo.Device WHERE Token =  @Token AND UserId =  @UserId)) BEGIN
++                                                -- IF ( NOT EXISTS(SELECT DeviceId FROM dbo.Device WHERE Token =  @Token AND UserId =  @UserId))
++                                                    IF (@DEVICE_ID_DATA IS NULL) BEGIN 
+ 
+-                                                    INSERT INTO [dbo].[Device]
++                                                        INSERT INTO [dbo].[Device]
+                                                        ([UserId]
+                                                        ,[Token]
+                                                        ,[Hash]

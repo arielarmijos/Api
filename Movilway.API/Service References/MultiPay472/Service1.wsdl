@@ -1,0 +1,757 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="CotizadorGiro">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Peticion" type="tns:CotizadorGiro" />
+            <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="tns:Usuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CotizadorGiro">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoPuntoVenta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoTerminal" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValorRecibido" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoTransaccion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NitRed" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CamposAdicionales" type="tns:ArrayOfAnyType" />
+          <s:element minOccurs="1" maxOccurs="1" name="IncluyeFlete" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAnyType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Usuario">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Clave" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RespuestaCotizadorGiro">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ValorFlete" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValorTotal" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValorEntregaBeneficiario" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoTransaccion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoRespuesta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fecha" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CotizadorGiroResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CotizadorGiroResult" type="tns:RespuestaCotizadorGiro" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidacionConstitucionGiro">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Peticion" type="tns:ValidacionConstitucionGiro" />
+            <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="tns:Usuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ValidacionConstitucionGiro">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Originador" type="tns:Originador" />
+          <s:element minOccurs="0" maxOccurs="1" name="Destinatario" type="tns:Destinatario" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoPuntoVenta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoTerminal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoDaneCiudadPuntoVenta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoDaneCiudadPagoSugerido" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoTransaccion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IncluyeFlete" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValorRecibido" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="NitRed" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Observaciones" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CamposAdicionales" type="tns:ArrayOfAnyType" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Originador">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="OIdentificacionCliente" type="tns:IdentificacionCliente" />
+          <s:element minOccurs="0" maxOccurs="1" name="RazonSocial" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TipoIdentificacionRepEmpresa" nillable="true" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroIdentificacionRepEmpresa" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrimerNombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SegundoNombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrimerApellido" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SegundoApellido" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FechaExpedicion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoDaneCiudadDomicilio" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Direccion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Huella" type="tns:Huella" />
+          <s:element minOccurs="1" maxOccurs="1" name="ConHuella" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumeroTelefono" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumeroCelular" nillable="true" type="s:long" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IdentificacionCliente">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="TipoIdentificacion" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroIdentificacion" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Huella">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdentificadorHuella" nillable="true" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="TipoHuella" nillable="true" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Minucia" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Destinatario">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="OIdentificacionCliente" type="tns:IdentificacionCliente" />
+          <s:element minOccurs="0" maxOccurs="1" name="RazonSocial" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TipoIdentificacionRepEmpresa" nillable="true" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroIdentificacionRepEmpresa" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrimerNombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SegundoNombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrimerApellido" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SegundoApellido" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoDaneCiudadDomicilio" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Direccion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumeroTelefono" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumeroCelular" nillable="true" type="s:long" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RespuestaValidacionConstitucionGiro">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoRespuesta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoTransaccion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Token" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Monto" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ValorFlete" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fecha" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ValidacionConstitucionGiroResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValidacionConstitucionGiroResult" type="tns:RespuestaValidacionConstitucionGiro" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EmisionGiro">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Peticion" type="tns:EmisionGiro" />
+            <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="tns:Usuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="EmisionGiro">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Token" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoTransaccion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroFactura" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CamposAdicionales" type="tns:ArrayOfAnyType" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RespuestaEmisionGiro">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PIN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroFactura" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoRespuesta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoTransaccion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoAutorizacion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroReferencia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fecha" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdGiro" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="EmisionGiroResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EmisionGiroResult" type="tns:RespuestaEmisionGiro" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReversoEmisionGiro">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Peticion" type="tns:ReversoEmisionGiro" />
+            <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="tns:Usuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ReversoEmisionGiro">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Token" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoTransaccion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroFactura" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CamposAdicionales" type="tns:ArrayOfAnyType" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RespuestaReversoEmisionGiro">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PIN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroFactura" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoRespuesta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoTransaccion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoAutorizacion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroReferencia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fecha" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ReversoEmisionGiroResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReversoEmisionGiroResult" type="tns:RespuestaReversoEmisionGiro" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PagoGiro">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Peticion" type="tns:PagoGiro" />
+            <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="tns:Usuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PagoGiro">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="OIdentificacionCliente" type="tns:IdentificacionCliente" />
+          <s:element minOccurs="0" maxOccurs="1" name="RazonSocial" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TipoIdentificacionRepresentanteEmpresa" nillable="true" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdGiro" nillable="true" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroIdentificacionRepresentanteEmpresa" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OHuella" type="tns:Huella" />
+          <s:element minOccurs="1" maxOccurs="1" name="ConHuella" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="FechaExpedicion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumeroTelefono" nillable="true" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumeroCelular" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="Valor" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pin" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoTransaccion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoPuntoVenta" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodigoDaneCiudadPuntoVenta" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroComprobantePago" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoTerminal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NitRed" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Observaciones" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CamposAdicionales" type="tns:ArrayOfAnyType" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RespuestaPagoGiro">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoRespuesta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroFactura" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoTransaccion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroComprobantePago" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoAutorizacion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroReferencia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ValorPago" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fecha" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PagoGiroResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PagoGiroResult" type="tns:RespuestaPagoGiro" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReversoPagoGiro">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Peticion" type="tns:PagoGiro" />
+            <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="tns:Usuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReversoPagoGiroResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReversoPagoGiroResult" type="tns:RespuestaPagoGiro" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaGiros">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Peticion" type="tns:ConsultaGiro" />
+            <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="tns:Usuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ConsultaGiro">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="TipoCliente" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="OIdentificacionCliente" type="tns:IdentificacionCliente" />
+          <s:element minOccurs="0" maxOccurs="1" name="PIN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoPuntoVenta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoTransaccion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoTerminal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NitRed" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CamposAdicionales" type="tns:ArrayOfAnyType" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RespuestaConsultaGiro">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="OGiro" type="tns:Giro" />
+          <s:element minOccurs="0" maxOccurs="1" name="Originador" type="tns:Originador" />
+          <s:element minOccurs="0" maxOccurs="1" name="Destinatario" type="tns:Destinatario" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoTransaccion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoRespuesta" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Giro">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdGiro" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValorRecibidoTotal" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="FechaConstitucion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Flete" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="IncluyeFlete" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Valor" type="s:long" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfRespuestaConsultaGiro">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RespuestaConsultaGiro" nillable="true" type="tns:RespuestaConsultaGiro" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ConsultaGirosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultaGirosResult" type="tns:ArrayOfRespuestaConsultaGiro" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AnulacionEmisionGiro">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Peticion" type="tns:AnulacionEmisionGiro" />
+            <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="tns:Usuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AnulacionEmisionGiro">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdGiro" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Remitente" type="tns:IdentificacionCliente" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroFactura" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pin" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoPuntoVenta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoDaneCiudadPuntoVenta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoTerminal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NitRed" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoTransaccion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MotivoDevolucion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Observaciones" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CamposAdicionales" type="tns:ArrayOfAnyType" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RespuestaAnulacionEmisionGiro">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Giro" type="tns:Giro" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoTransaccion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoRespuesta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoAutorizacion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroReferencia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fecha" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValorRetornar" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Factura" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AnulacionEmisionGiroResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AnulacionEmisionGiroResult" type="tns:RespuestaAnulacionEmisionGiro" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelacionEmisionGiro">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Peticion" type="tns:CancelacionEmisionGiro" />
+            <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="tns:Usuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CancelacionEmisionGiro">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdGiro" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Remitente" type="tns:IdentificacionCliente" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroFactura" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pin" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoPuntoVenta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoDaneCiudadPuntoVenta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoTerminal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NitRed" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoTransaccion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MotivoDevolucion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Observaciones" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CamposAdicionales" type="tns:ArrayOfAnyType" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RespuestaCancelacionEmisionGiro">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Giro" type="tns:Giro" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoTransaccion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoRespuesta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoAutorizacion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroReferencia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fecha" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValorRetornar" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Factura" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CancelacionEmisionGiroResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CancelacionEmisionGiroResult" type="tns:RespuestaCancelacionEmisionGiro" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaReimpresion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Peticion" type="tns:ConsultaReimpresion" />
+            <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="tns:Usuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ConsultaReimpresion">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdGiro" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="OIdentificacionCliente" type="tns:IdentificacionCliente" />
+          <s:element minOccurs="0" maxOccurs="1" name="FechaInicioEmision" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FechaFinEmision" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroFactura" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoPuntoVenta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoTransaccion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NitRed" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CamposAdicionales" type="tns:ArrayOfAnyType" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RespuestaConsultaGiroReimpresion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="OGiro" type="tns:Giro" />
+          <s:element minOccurs="0" maxOccurs="1" name="Originador" type="tns:Originador" />
+          <s:element minOccurs="0" maxOccurs="1" name="Destinatario" type="tns:Destinatario" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoTransaccion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoRespuesta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroFactura" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoAutorizacion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoDane" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PIN" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfRespuestaConsultaGiroReimpresion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RespuestaConsultaGiroReimpresion" nillable="true" type="tns:RespuestaConsultaGiroReimpresion" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ConsultaReimpresionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultaReimpresionResult" type="tns:ArrayOfRespuestaConsultaGiroReimpresion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CotizadorGiroSoapIn">
+    <wsdl:part name="parameters" element="tns:CotizadorGiro" />
+  </wsdl:message>
+  <wsdl:message name="CotizadorGiroSoapOut">
+    <wsdl:part name="parameters" element="tns:CotizadorGiroResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidacionConstitucionGiroSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidacionConstitucionGiro" />
+  </wsdl:message>
+  <wsdl:message name="ValidacionConstitucionGiroSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidacionConstitucionGiroResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmisionGiroSoapIn">
+    <wsdl:part name="parameters" element="tns:EmisionGiro" />
+  </wsdl:message>
+  <wsdl:message name="EmisionGiroSoapOut">
+    <wsdl:part name="parameters" element="tns:EmisionGiroResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReversoEmisionGiroSoapIn">
+    <wsdl:part name="parameters" element="tns:ReversoEmisionGiro" />
+  </wsdl:message>
+  <wsdl:message name="ReversoEmisionGiroSoapOut">
+    <wsdl:part name="parameters" element="tns:ReversoEmisionGiroResponse" />
+  </wsdl:message>
+  <wsdl:message name="PagoGiroSoapIn">
+    <wsdl:part name="parameters" element="tns:PagoGiro" />
+  </wsdl:message>
+  <wsdl:message name="PagoGiroSoapOut">
+    <wsdl:part name="parameters" element="tns:PagoGiroResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReversoPagoGiroSoapIn">
+    <wsdl:part name="parameters" element="tns:ReversoPagoGiro" />
+  </wsdl:message>
+  <wsdl:message name="ReversoPagoGiroSoapOut">
+    <wsdl:part name="parameters" element="tns:ReversoPagoGiroResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaGirosSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultaGiros" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaGirosSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultaGirosResponse" />
+  </wsdl:message>
+  <wsdl:message name="AnulacionEmisionGiroSoapIn">
+    <wsdl:part name="parameters" element="tns:AnulacionEmisionGiro" />
+  </wsdl:message>
+  <wsdl:message name="AnulacionEmisionGiroSoapOut">
+    <wsdl:part name="parameters" element="tns:AnulacionEmisionGiroResponse" />
+  </wsdl:message>
+  <wsdl:message name="CancelacionEmisionGiroSoapIn">
+    <wsdl:part name="parameters" element="tns:CancelacionEmisionGiro" />
+  </wsdl:message>
+  <wsdl:message name="CancelacionEmisionGiroSoapOut">
+    <wsdl:part name="parameters" element="tns:CancelacionEmisionGiroResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaReimpresionSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultaReimpresion" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaReimpresionSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultaReimpresionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="Service1Soap">
+    <wsdl:operation name="CotizadorGiro">
+      <wsdl:input message="tns:CotizadorGiroSoapIn" />
+      <wsdl:output message="tns:CotizadorGiroSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidacionConstitucionGiro">
+      <wsdl:input message="tns:ValidacionConstitucionGiroSoapIn" />
+      <wsdl:output message="tns:ValidacionConstitucionGiroSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EmisionGiro">
+      <wsdl:input message="tns:EmisionGiroSoapIn" />
+      <wsdl:output message="tns:EmisionGiroSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReversoEmisionGiro">
+      <wsdl:input message="tns:ReversoEmisionGiroSoapIn" />
+      <wsdl:output message="tns:ReversoEmisionGiroSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PagoGiro">
+      <wsdl:input message="tns:PagoGiroSoapIn" />
+      <wsdl:output message="tns:PagoGiroSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReversoPagoGiro">
+      <wsdl:input message="tns:ReversoPagoGiroSoapIn" />
+      <wsdl:output message="tns:ReversoPagoGiroSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaGiros">
+      <wsdl:input message="tns:ConsultaGirosSoapIn" />
+      <wsdl:output message="tns:ConsultaGirosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AnulacionEmisionGiro">
+      <wsdl:input message="tns:AnulacionEmisionGiroSoapIn" />
+      <wsdl:output message="tns:AnulacionEmisionGiroSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelacionEmisionGiro">
+      <wsdl:input message="tns:CancelacionEmisionGiroSoapIn" />
+      <wsdl:output message="tns:CancelacionEmisionGiroSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaReimpresion">
+      <wsdl:input message="tns:ConsultaReimpresionSoapIn" />
+      <wsdl:output message="tns:ConsultaReimpresionSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Service1Soap" type="tns:Service1Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CotizadorGiro">
+      <soap:operation soapAction="http://tempuri.org/CotizadorGiro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidacionConstitucionGiro">
+      <soap:operation soapAction="http://tempuri.org/ValidacionConstitucionGiro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmisionGiro">
+      <soap:operation soapAction="http://tempuri.org/EmisionGiro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReversoEmisionGiro">
+      <soap:operation soapAction="http://tempuri.org/ReversoEmisionGiro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PagoGiro">
+      <soap:operation soapAction="http://tempuri.org/PagoGiro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReversoPagoGiro">
+      <soap:operation soapAction="http://tempuri.org/ReversoPagoGiro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaGiros">
+      <soap:operation soapAction="http://tempuri.org/ConsultaGiros" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AnulacionEmisionGiro">
+      <soap:operation soapAction="http://tempuri.org/AnulacionEmisionGiro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelacionEmisionGiro">
+      <soap:operation soapAction="http://tempuri.org/CancelacionEmisionGiro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaReimpresion">
+      <soap:operation soapAction="http://tempuri.org/ConsultaReimpresion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Service1Soap12" type="tns:Service1Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CotizadorGiro">
+      <soap12:operation soapAction="http://tempuri.org/CotizadorGiro" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidacionConstitucionGiro">
+      <soap12:operation soapAction="http://tempuri.org/ValidacionConstitucionGiro" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmisionGiro">
+      <soap12:operation soapAction="http://tempuri.org/EmisionGiro" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReversoEmisionGiro">
+      <soap12:operation soapAction="http://tempuri.org/ReversoEmisionGiro" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PagoGiro">
+      <soap12:operation soapAction="http://tempuri.org/PagoGiro" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReversoPagoGiro">
+      <soap12:operation soapAction="http://tempuri.org/ReversoPagoGiro" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaGiros">
+      <soap12:operation soapAction="http://tempuri.org/ConsultaGiros" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AnulacionEmisionGiro">
+      <soap12:operation soapAction="http://tempuri.org/AnulacionEmisionGiro" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelacionEmisionGiro">
+      <soap12:operation soapAction="http://tempuri.org/CancelacionEmisionGiro" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaReimpresion">
+      <soap12:operation soapAction="http://tempuri.org/ConsultaReimpresion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="Service1Soap" binding="tns:Service1Soap">
+      <soap:address location="http://desarrollo.multipay.com.co:558/Service1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Service1Soap12" binding="tns:Service1Soap12">
+      <soap12:address location="http://desarrollo.multipay.com.co:558/Service1.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,884 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MacroProductosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AccessType">
+          <Key>
+            <PropertyRef Name="AccessTypeId" />
+          </Key>
+          <Property Name="AccessTypeId" Type="int" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AmountType">
+          <Key>
+            <PropertyRef Name="AmountTypeId" />
+          </Key>
+          <Property Name="AmountTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AmountTypeName" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="AmountTypeDescription" Type="text" Nullable="false" />
+          <Property Name="AmountRequired" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BalanceType">
+          <Key>
+            <PropertyRef Name="BalanceTypeId" />
+          </Key>
+          <Property Name="BalanceTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BalanceTypeName" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="BalanceTypeDescription" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CountryId" Type="int" Nullable="false" />
+          <Property Name="CategoryName" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="StatusId" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Rank" Type="int" Nullable="false" />
+          <Property Name="Description" Type="text" />
+        </EntityType>
+        <EntityType Name="FavoriteAmounts">
+          <Key>
+            <PropertyRef Name="CountryId" />
+            <PropertyRef Name="MacroProductId" />
+            <PropertyRef Name="Amount" />
+          </Key>
+          <Property Name="CountryId" Type="int" Nullable="false" />
+          <Property Name="MacroProductId" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="money" Nullable="false" />
+          <Property Name="Rank" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FieldType">
+          <Key>
+            <PropertyRef Name="FieldTypeId" />
+          </Key>
+          <Property Name="FieldTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FieldTypeName" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="FieldTypeAcronym" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="FieldTypeDescription" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MacroProduct">
+          <Key>
+            <PropertyRef Name="MacroProductId" />
+            <PropertyRef Name="CountryId" />
+          </Key>
+          <Property Name="MacroProductId" Type="int" Nullable="false" />
+          <Property Name="CountryId" Type="int" Nullable="false" />
+          <Property Name="SubcategoryId" Type="int" Nullable="false" />
+          <Property Name="BalanceTypeId" Type="int" Nullable="false" />
+          <Property Name="MacroProductName" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="FeePercent" Type="float" Nullable="false" />
+          <Property Name="FeePlus" Type="float" Nullable="false" />
+          <Property Name="Reprint" Type="bit" Nullable="false" />
+          <Property Name="AmountTypeId" Type="int" Nullable="false" />
+          <Property Name="Rank" Type="int" Nullable="false" />
+          <Property Name="MandatoryPrint" Type="bit" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime2" Precision="3" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+          <Property Name="OwnerCountryId" Type="int" />
+          <Property Name="CurrencyPurchase" Type="varchar" MaxLength="3" />
+          <Property Name="CurrencySale" Type="varchar" MaxLength="3" />
+          <Property Name="ExchangeRate" Type="money" />
+          <Property Name="AmountField" Type="varchar" MaxLength="255" />
+          <Property Name="StatusId" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Message" Type="nvarchar" MaxLength="250" />
+          <Property Name="RequireQuery" Type="bit" />
+        </EntityType>
+        <EntityType Name="MacroProductAccessTypes">
+          <Key>
+            <PropertyRef Name="MacroProductId" />
+            <PropertyRef Name="CountryId" />
+            <PropertyRef Name="AccessTypeId" />
+          </Key>
+          <Property Name="MacroProductId" Type="int" Nullable="false" />
+          <Property Name="CountryId" Type="int" Nullable="false" />
+          <Property Name="AccessTypeId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MacroProductBranch">
+          <Key>
+            <PropertyRef Name="MacroProductBranchId" />
+            <PropertyRef Name="CountryId" />
+            <PropertyRef Name="PlatformId" />
+            <PropertyRef Name="MacroProductId" />
+          </Key>
+          <Property Name="MacroProductBranchId" Type="int" Nullable="false" />
+          <Property Name="CountryId" Type="int" Nullable="false" />
+          <Property Name="PlatformId" Type="int" Nullable="false" />
+          <Property Name="MacroProductId" Type="int" Nullable="false" />
+          <Property Name="MacroProductChannelId" Type="int" />
+        </EntityType>
+        <EntityType Name="MacroProductChannel">
+          <Key>
+            <PropertyRef Name="MacroProductChannelId" />
+            <PropertyRef Name="MacroProductId" />
+            <PropertyRef Name="CountryId" />
+            <PropertyRef Name="PlatformId" />
+          </Key>
+          <Property Name="MacroProductChannelId" Type="int" Nullable="false" />
+          <Property Name="MacroProductId" Type="int" Nullable="false" />
+          <Property Name="CountryId" Type="int" Nullable="false" />
+          <Property Name="PlatformId" Type="int" Nullable="false" />
+          <Property Name="Load" Type="int" Nullable="false" />
+          <Property Name="StatusId" Type="varchar" MaxLength="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MacroProductField">
+          <Key>
+            <PropertyRef Name="MacroProductFieldId" />
+            <PropertyRef Name="MacroProductId" />
+            <PropertyRef Name="CountryId" />
+          </Key>
+          <Property Name="MacroProductFieldId" Type="int" Nullable="false" />
+          <Property Name="MacroProductId" Type="int" Nullable="false" />
+          <Property Name="CountryId" Type="int" Nullable="false" />
+          <Property Name="FieldTypeId" Type="int" Nullable="false" />
+          <Property Name="FieldName" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="FieldFormat" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="FieldLength" Type="int" Nullable="false" />
+          <Property Name="MapValueNameTo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MapValueTo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Min" Type="float" Nullable="false" />
+          <Property Name="Max" Type="float" Nullable="false" />
+          <Property Name="Mandatory" Type="bit" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime2" Precision="3" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MacroProductValue">
+          <Key>
+            <PropertyRef Name="MacroProductValueId" />
+            <PropertyRef Name="MacroProductFieldId" />
+            <PropertyRef Name="MacroProductId" />
+            <PropertyRef Name="CountryId" />
+          </Key>
+          <Property Name="MacroProductValueId" Type="int" Nullable="false" />
+          <Property Name="MacroProductFieldId" Type="int" Nullable="false" />
+          <Property Name="MacroProductId" Type="int" Nullable="false" />
+          <Property Name="CountryId" Type="int" Nullable="false" />
+          <Property Name="ValueName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Value" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SubCategory">
+          <Key>
+            <PropertyRef Name="SubCategoryId" />
+          </Key>
+          <Property Name="SubCategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryId" Type="int" Nullable="false" />
+          <Property Name="SubCategoryName" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="StatusId" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Rank" Type="int" Nullable="false" />
+          <Property Name="Description" Type="text" />
+        </EntityType>
+        <Association Name="FK_MacroProduct_AmountType">
+          <End Role="AmountType" Type="Self.AmountType" Multiplicity="1" />
+          <End Role="MacroProduct" Type="Self.MacroProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AmountType">
+              <PropertyRef Name="AmountTypeId" />
+            </Principal>
+            <Dependent Role="MacroProduct">
+              <PropertyRef Name="AmountTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MacroProduct_BalanceType">
+          <End Role="BalanceType" Type="Self.BalanceType" Multiplicity="1" />
+          <End Role="MacroProduct" Type="Self.MacroProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BalanceType">
+              <PropertyRef Name="BalanceTypeId" />
+            </Principal>
+            <Dependent Role="MacroProduct">
+              <PropertyRef Name="BalanceTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MacroProduct_SubCategory">
+          <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="1" />
+          <End Role="MacroProduct" Type="Self.MacroProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubCategory">
+              <PropertyRef Name="SubCategoryId" />
+            </Principal>
+            <Dependent Role="MacroProduct">
+              <PropertyRef Name="SubcategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MacroProductAccessTypes_AccessType">
+          <End Role="AccessType" Type="Self.AccessType" Multiplicity="1" />
+          <End Role="MacroProductAccessTypes" Type="Self.MacroProductAccessTypes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AccessType">
+              <PropertyRef Name="AccessTypeId" />
+            </Principal>
+            <Dependent Role="MacroProductAccessTypes">
+              <PropertyRef Name="AccessTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MacroProductAccessTypes_MacroProduct">
+          <End Role="MacroProduct" Type="Self.MacroProduct" Multiplicity="1" />
+          <End Role="MacroProductAccessTypes" Type="Self.MacroProductAccessTypes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MacroProduct">
+              <PropertyRef Name="MacroProductId" />
+              <PropertyRef Name="CountryId" />
+            </Principal>
+            <Dependent Role="MacroProductAccessTypes">
+              <PropertyRef Name="MacroProductId" />
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MacroProductChannel_MacroProduct">
+          <End Role="MacroProduct" Type="Self.MacroProduct" Multiplicity="1" />
+          <End Role="MacroProductChannel" Type="Self.MacroProductChannel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MacroProduct">
+              <PropertyRef Name="MacroProductId" />
+              <PropertyRef Name="CountryId" />
+            </Principal>
+            <Dependent Role="MacroProductChannel">
+              <PropertyRef Name="MacroProductId" />
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MacroProductField_FieldTypeId">
+          <End Role="FieldType" Type="Self.FieldType" Multiplicity="1" />
+          <End Role="MacroProductField" Type="Self.MacroProductField" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FieldType">
+              <PropertyRef Name="FieldTypeId" />
+            </Principal>
+            <Dependent Role="MacroProductField">
+              <PropertyRef Name="FieldTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MacroProductField_MacroProduct">
+          <End Role="MacroProduct" Type="Self.MacroProduct" Multiplicity="1" />
+          <End Role="MacroProductField" Type="Self.MacroProductField" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MacroProduct">
+              <PropertyRef Name="MacroProductId" />
+              <PropertyRef Name="CountryId" />
+            </Principal>
+            <Dependent Role="MacroProductField">
+              <PropertyRef Name="MacroProductId" />
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MacroProductValue_MacroProductField">
+          <End Role="MacroProductField" Type="Self.MacroProductField" Multiplicity="1" />
+          <End Role="MacroProductValue" Type="Self.MacroProductValue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MacroProductField">
+              <PropertyRef Name="MacroProductFieldId" />
+              <PropertyRef Name="CountryId" />
+              <PropertyRef Name="MacroProductId" />
+            </Principal>
+            <Dependent Role="MacroProductValue">
+              <PropertyRef Name="MacroProductFieldId" />
+              <PropertyRef Name="CountryId" />
+              <PropertyRef Name="MacroProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubCategory_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="SubCategory" Type="Self.SubCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="SubCategory">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MacroProductosModelStoreContainer">
+          <EntitySet Name="AccessType" EntityType="Self.AccessType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AmountType" EntityType="Self.AmountType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BalanceType" EntityType="Self.BalanceType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FavoriteAmounts" EntityType="Self.FavoriteAmounts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FieldType" EntityType="Self.FieldType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MacroProduct" EntityType="Self.MacroProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MacroProductAccessTypes" EntityType="Self.MacroProductAccessTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MacroProductBranch" EntityType="Self.MacroProductBranch" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MacroProductChannel" EntityType="Self.MacroProductChannel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MacroProductField" EntityType="Self.MacroProductField" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MacroProductValue" EntityType="Self.MacroProductValue" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubCategory" EntityType="Self.SubCategory" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_MacroProduct_AmountType" Association="Self.FK_MacroProduct_AmountType">
+            <End Role="AmountType" EntitySet="AmountType" />
+            <End Role="MacroProduct" EntitySet="MacroProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MacroProduct_BalanceType" Association="Self.FK_MacroProduct_BalanceType">
+            <End Role="BalanceType" EntitySet="BalanceType" />
+            <End Role="MacroProduct" EntitySet="MacroProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MacroProduct_SubCategory" Association="Self.FK_MacroProduct_SubCategory">
+            <End Role="SubCategory" EntitySet="SubCategory" />
+            <End Role="MacroProduct" EntitySet="MacroProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MacroProductAccessTypes_AccessType" Association="Self.FK_MacroProductAccessTypes_AccessType">
+            <End Role="AccessType" EntitySet="AccessType" />
+            <End Role="MacroProductAccessTypes" EntitySet="MacroProductAccessTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MacroProductAccessTypes_MacroProduct" Association="Self.FK_MacroProductAccessTypes_MacroProduct">
+            <End Role="MacroProduct" EntitySet="MacroProduct" />
+            <End Role="MacroProductAccessTypes" EntitySet="MacroProductAccessTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MacroProductChannel_MacroProduct" Association="Self.FK_MacroProductChannel_MacroProduct">
+            <End Role="MacroProduct" EntitySet="MacroProduct" />
+            <End Role="MacroProductChannel" EntitySet="MacroProductChannel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MacroProductField_FieldTypeId" Association="Self.FK_MacroProductField_FieldTypeId">
+            <End Role="FieldType" EntitySet="FieldType" />
+            <End Role="MacroProductField" EntitySet="MacroProductField" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MacroProductField_MacroProduct" Association="Self.FK_MacroProductField_MacroProduct">
+            <End Role="MacroProduct" EntitySet="MacroProduct" />
+            <End Role="MacroProductField" EntitySet="MacroProductField" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MacroProductValue_MacroProductField" Association="Self.FK_MacroProductValue_MacroProductField">
+            <End Role="MacroProductField" EntitySet="MacroProductField" />
+            <End Role="MacroProductValue" EntitySet="MacroProductValue" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubCategory_Category" Association="Self.FK_SubCategory_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="SubCategory" EntitySet="SubCategory" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MacroProductosModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="MacroProductosEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="AmountType" EntityType="MacroProductosModel.AmountType" />
+          <EntitySet Name="BalanceType" EntityType="MacroProductosModel.BalanceType" />
+          <EntitySet Name="FieldType" EntityType="MacroProductosModel.FieldType" />
+          <EntitySet Name="MacroProduct" EntityType="MacroProductosModel.MacroProduct" />
+          <EntitySet Name="MacroProductBranch" EntityType="MacroProductosModel.MacroProductBranch" />
+          <EntitySet Name="MacroProductChannel" EntityType="MacroProductosModel.MacroProductChannel" />
+          <EntitySet Name="MacroProductValue" EntityType="MacroProductosModel.MacroProductValue" />
+          <EntitySet Name="SubCategory" EntityType="MacroProductosModel.SubCategory" />
+          <AssociationSet Name="FK_MacroProduct_AmountType" Association="MacroProductosModel.FK_MacroProduct_AmountType">
+            <End Role="AmountType" EntitySet="AmountType" />
+            <End Role="MacroProduct" EntitySet="MacroProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MacroProduct_BalanceType" Association="MacroProductosModel.FK_MacroProduct_BalanceType">
+            <End Role="BalanceType" EntitySet="BalanceType" />
+            <End Role="MacroProduct" EntitySet="MacroProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MacroProduct_SubCategory" Association="MacroProductosModel.FK_MacroProduct_SubCategory">
+            <End Role="SubCategory" EntitySet="SubCategory" />
+            <End Role="MacroProduct" EntitySet="MacroProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MacroProductChannel_MacroProduct" Association="MacroProductosModel.FK_MacroProductChannel_MacroProduct">
+            <End Role="MacroProduct" EntitySet="MacroProduct" />
+            <End Role="MacroProductChannel" EntitySet="MacroProductChannel" />
+          </AssociationSet>
+          <EntitySet Name="MacroProductField" EntityType="MacroProductosModel.MacroProductField" />
+          <AssociationSet Name="FK_MacroProductField_FieldTypeId" Association="MacroProductosModel.FK_MacroProductField_FieldTypeId">
+            <End Role="FieldType" EntitySet="FieldType" />
+            <End Role="MacroProductField" EntitySet="MacroProductField" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MacroProductField_MacroProduct" Association="MacroProductosModel.FK_MacroProductField_MacroProduct">
+            <End Role="MacroProduct" EntitySet="MacroProduct" />
+            <End Role="MacroProductField" EntitySet="MacroProductField" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MacroProductValue_MacroProductField" Association="MacroProductosModel.FK_MacroProductValue_MacroProductField">
+            <End Role="MacroProductField" EntitySet="MacroProductField" />
+            <End Role="MacroProductValue" EntitySet="MacroProductValue" />
+          </AssociationSet>
+          <EntitySet Name="Category" EntityType="MacroProductosModel.Category" />
+          <AssociationSet Name="FK_SubCategory_Category" Association="MacroProductosModel.FK_SubCategory_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="SubCategory" EntitySet="SubCategory" />
+          </AssociationSet>
+          <EntitySet Name="FavoriteAmounts" EntityType="MacroProductosModel.FavoriteAmounts" />
+          <EntitySet Name="AccessType" EntityType="MacroProductosModel.AccessType" />
+          <AssociationSet Name="MacroProductAccessTypes" Association="MacroProductosModel.MacroProductAccessTypes">
+            <End Role="AccessType" EntitySet="AccessType" />
+            <End Role="MacroProduct" EntitySet="MacroProduct" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AmountType">
+          <Key>
+            <PropertyRef Name="AmountTypeId" />
+          </Key>
+          <Property Type="Int32" Name="AmountTypeId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="AmountTypeName" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="AmountTypeDescription" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="AmountRequired" Nullable="false" />
+          <NavigationProperty Name="MacroProduct" Relationship="MacroProductosModel.FK_MacroProduct_AmountType" FromRole="AmountType" ToRole="MacroProduct" />
+        </EntityType>
+        <EntityType Name="BalanceType">
+          <Key>
+            <PropertyRef Name="BalanceTypeId" />
+          </Key>
+          <Property Type="Int32" Name="BalanceTypeId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="BalanceTypeName" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="BalanceTypeDescription" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="MacroProduct" Relationship="MacroProductosModel.FK_MacroProduct_BalanceType" FromRole="BalanceType" ToRole="MacroProduct" />
+        </EntityType>
+        <EntityType Name="FieldType">
+          <Key>
+            <PropertyRef Name="FieldTypeId" />
+          </Key>
+          <Property Type="Int32" Name="FieldTypeId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="FieldTypeName" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="FieldTypeAcronym" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="FieldTypeDescription" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="MacroProductField" Relationship="MacroProductosModel.FK_MacroProductField_FieldTypeId" FromRole="FieldType" ToRole="MacroProductField" />
+        </EntityType>
+        <EntityType Name="MacroProduct">
+          <Key>
+            <PropertyRef Name="MacroProductId" />
+            <PropertyRef Name="CountryId" />
+          </Key>
+          <Property Type="Int32" Name="MacroProductId" Nullable="false" />
+          <Property Type="Int32" Name="CountryId" Nullable="false" />
+          <Property Type="Int32" Name="SubcategoryId" Nullable="false" />
+          <Property Type="Int32" Name="BalanceTypeId" Nullable="false" />
+          <Property Type="String" Name="MacroProductName" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="FeePercent" Nullable="false" />
+          <Property Type="Double" Name="FeePlus" Nullable="false" />
+          <Property Type="Boolean" Name="Reprint" Nullable="false" />
+          <Property Type="Int32" Name="AmountTypeId" Nullable="false" />
+          <Property Type="Int32" Name="Rank" Nullable="false" />
+          <Property Type="Boolean" Name="MandatoryPrint" Nullable="false" />
+          <Property Type="DateTime" Name="DateCreated" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Description" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AmountType" Relationship="MacroProductosModel.FK_MacroProduct_AmountType" FromRole="MacroProduct" ToRole="AmountType" />
+          <NavigationProperty Name="BalanceType" Relationship="MacroProductosModel.FK_MacroProduct_BalanceType" FromRole="MacroProduct" ToRole="BalanceType" />
+          <NavigationProperty Name="SubCategory" Relationship="MacroProductosModel.FK_MacroProduct_SubCategory" FromRole="MacroProduct" ToRole="SubCategory" />
+          <NavigationProperty Name="MacroProductChannel" Relationship="MacroProductosModel.FK_MacroProductChannel_MacroProduct" FromRole="MacroProduct" ToRole="MacroProductChannel" />
+          <NavigationProperty Name="MacroProductField" Relationship="MacroProductosModel.FK_MacroProductField_MacroProduct" FromRole="MacroProduct" ToRole="MacroProductField" />
+          <Property Type="Int32" Name="OwnerCountryId" />
+          <Property Type="String" Name="CurrencyPurchase" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CurrencySale" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="ExchangeRate" Precision="19" Scale="4" />
+          <Property Type="String" Name="AmountField" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="StatusId" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Message" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AccessType" Relationship="MacroProductosModel.MacroProductAccessTypes" FromRole="MacroProduct" ToRole="AccessType" />
+          <Property Name="RequireQuery" Type="Boolean" Nullable="true" />
+        </EntityType>
+        <EntityType Name="MacroProductBranch">
+          <Key>
+            <PropertyRef Name="MacroProductBranchId" />
+            <PropertyRef Name="CountryId" />
+            <PropertyRef Name="PlatformId" />
+            <PropertyRef Name="MacroProductId" />
+          </Key>
+          <Property Type="Int32" Name="MacroProductBranchId" Nullable="false" />
+          <Property Type="Int32" Name="CountryId" Nullable="false" />
+          <Property Type="Int32" Name="PlatformId" Nullable="false" />
+          <Property Type="Int32" Name="MacroProductId" Nullable="false" />
+          <Property Type="Int32" Name="MacroProductChannelId" />
+        </EntityType>
+        <EntityType Name="MacroProductChannel">
+          <Key>
+            <PropertyRef Name="MacroProductChannelId" />
+            <PropertyRef Name="MacroProductId" />
+            <PropertyRef Name="CountryId" />
+            <PropertyRef Name="PlatformId" />
+          </Key>
+          <Property Type="Int32" Name="MacroProductChannelId" Nullable="false" />
+          <Property Type="Int32" Name="MacroProductId" Nullable="false" />
+          <Property Type="Int32" Name="CountryId" Nullable="false" />
+          <Property Type="Int32" Name="PlatformId" Nullable="false" />
+          <Property Type="Int32" Name="Load" Nullable="false" />
+          <Property Type="String" Name="StatusId" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="MacroProduct" Relationship="MacroProductosModel.FK_MacroProductChannel_MacroProduct" FromRole="MacroProductChannel" ToRole="MacroProduct" />
+        </EntityType>
+        <EntityType Name="MacroProductValue">
+          <Key>
+            <PropertyRef Name="MacroProductValueId" />
+            <PropertyRef Name="MacroProductFieldId" />
+            <PropertyRef Name="MacroProductId" />
+            <PropertyRef Name="CountryId" />
+          </Key>
+          <Property Type="Int32" Name="MacroProductValueId" Nullable="false" />
+          <Property Type="Int32" Name="MacroProductFieldId" Nullable="false" />
+          <Property Type="Int32" Name="MacroProductId" Nullable="false" />
+          <Property Type="Int32" Name="CountryId" Nullable="false" />
+          <Property Type="String" Name="ValueName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Value" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MacroProductField" Relationship="MacroProductosModel.FK_MacroProductValue_MacroProductField" FromRole="MacroProductValue" ToRole="MacroProductField" />
+        </EntityType>
+        <EntityType Name="SubCategory">
+          <Key>
+            <PropertyRef Name="SubCategoryId" />
+          </Key>
+          <Property Type="Int32" Name="SubCategoryId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="CategoryId" Nullable="false" />
+          <Property Type="String" Name="SubCategoryName" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="StatusId" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Rank" Nullable="false" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="MacroProduct" Relationship="MacroProductosModel.FK_MacroProduct_SubCategory" FromRole="SubCategory" ToRole="MacroProduct" />
+          <NavigationProperty Name="Category" Relationship="MacroProductosModel.FK_SubCategory_Category" FromRole="SubCategory" ToRole="Category" />
+        </EntityType>
+        <Association Name="FK_MacroProduct_AmountType">
+          <End Type="MacroProductosModel.AmountType" Role="AmountType" Multiplicity="1" />
+          <End Type="MacroProductosModel.MacroProduct" Role="MacroProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AmountType">
+              <PropertyRef Name="AmountTypeId" />
+            </Principal>
+            <Dependent Role="MacroProduct">
+              <PropertyRef Name="AmountTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MacroProduct_BalanceType">
+          <End Type="MacroProductosModel.BalanceType" Role="BalanceType" Multiplicity="1" />
+          <End Type="MacroProductosModel.MacroProduct" Role="MacroProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BalanceType">
+              <PropertyRef Name="BalanceTypeId" />
+            </Principal>
+            <Dependent Role="MacroProduct">
+              <PropertyRef Name="BalanceTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MacroProduct_SubCategory">
+          <End Type="MacroProductosModel.SubCategory" Role="SubCategory" Multiplicity="1" />
+          <End Type="MacroProductosModel.MacroProduct" Role="MacroProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubCategory">
+              <PropertyRef Name="SubCategoryId" />
+            </Principal>
+            <Dependent Role="MacroProduct">
+              <PropertyRef Name="SubcategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MacroProductChannel_MacroProduct">
+          <End Type="MacroProductosModel.MacroProduct" Role="MacroProduct" Multiplicity="1" />
+          <End Type="MacroProductosModel.MacroProductChannel" Role="MacroProductChannel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MacroProduct">
+              <PropertyRef Name="MacroProductId" />
+              <PropertyRef Name="CountryId" />
+            </Principal>
+            <Dependent Role="MacroProductChannel">
+              <PropertyRef Name="MacroProductId" />
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="MacroProductField">
+          <Key>
+            <PropertyRef Name="MacroProductFieldId" />
+            <PropertyRef Name="MacroProductId" />
+            <PropertyRef Name="CountryId" />
+          </Key>
+          <Property Type="Int32" Name="MacroProductFieldId" Nullable="false" />
+          <Property Type="Int32" Name="MacroProductId" Nullable="false" />
+          <Property Type="Int32" Name="CountryId" Nullable="false" />
+          <Property Type="Int32" Name="FieldTypeId" Nullable="false" />
+          <Property Type="String" Name="FieldName" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="FieldFormat" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="FieldLength" Nullable="false" />
+          <Property Type="String" Name="MapValueNameTo" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="MapValueTo" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="Min" Nullable="false" />
+          <Property Type="Double" Name="Max" Nullable="false" />
+          <Property Type="Boolean" Name="Mandatory" Nullable="false" />
+          <Property Type="DateTime" Name="DateCreated" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="FieldType" Relationship="MacroProductosModel.FK_MacroProductField_FieldTypeId" FromRole="MacroProductField" ToRole="FieldType" />
+          <NavigationProperty Name="MacroProduct" Relationship="MacroProductosModel.FK_MacroProductField_MacroProduct" FromRole="MacroProductField" ToRole="MacroProduct" />
+          <NavigationProperty Name="MacroProductValue" Relationship="MacroProductosModel.FK_MacroProductValue_MacroProductField" FromRole="MacroProductField" ToRole="MacroProductValue" />
+        </EntityType>
+        <Association Name="FK_MacroProductField_FieldTypeId">
+          <End Type="MacroProductosModel.FieldType" Role="FieldType" Multiplicity="1" />
+          <End Type="MacroProductosModel.MacroProductField" Role="MacroProductField" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FieldType">
+              <PropertyRef Name="FieldTypeId" />
+            </Principal>
+            <Dependent Role="MacroProductField">
+              <PropertyRef Name="FieldTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MacroProductField_MacroProduct">
+          <End Type="MacroProductosModel.MacroProduct" Role="MacroProduct" Multiplicity="1" />
+          <End Type="MacroProductosModel.MacroProductField" Role="MacroProductField" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MacroProduct">
+              <PropertyRef Name="MacroProductId" />
+              <PropertyRef Name="CountryId" />
+            </Principal>
+            <Dependent Role="MacroProductField">
+              <PropertyRef Name="MacroProductId" />
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MacroProductValue_MacroProductField">
+          <End Type="MacroProductosModel.MacroProductField" Role="MacroProductField" Multiplicity="1" />
+          <End Type="MacroProductosModel.MacroProductValue" Role="MacroProductValue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MacroProductField">
+              <PropertyRef Name="MacroProductFieldId" />
+              <PropertyRef Name="CountryId" />
+              <PropertyRef Name="MacroProductId" />
+            </Principal>
+            <Dependent Role="MacroProductValue">
+              <PropertyRef Name="MacroProductFieldId" />
+              <PropertyRef Name="CountryId" />
+              <PropertyRef Name="MacroProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Type="Int32" Name="CategoryId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="CountryId" Nullable="false" />
+          <Property Type="String" Name="CategoryName" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="StatusId" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Rank" Nullable="false" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="SubCategory" Relationship="MacroProductosModel.FK_SubCategory_Category" FromRole="Category" ToRole="SubCategory" />
+        </EntityType>
+        <Association Name="FK_SubCategory_Category">
+          <End Type="MacroProductosModel.Category" Role="Category" Multiplicity="1" />
+          <End Type="MacroProductosModel.SubCategory" Role="SubCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="SubCategory">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="FavoriteAmounts">
+          <Key>
+            <PropertyRef Name="CountryId" />
+            <PropertyRef Name="MacroProductId" />
+            <PropertyRef Name="Amount" />
+          </Key>
+          <Property Type="Int32" Name="CountryId" Nullable="false" />
+          <Property Type="Int32" Name="MacroProductId" Nullable="false" />
+          <Property Type="Decimal" Name="Amount" Nullable="false" Precision="19" Scale="4" />
+          <Property Type="Int32" Name="Rank" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AccessType">
+          <Key>
+            <PropertyRef Name="AccessTypeId" />
+          </Key>
+          <Property Name="AccessTypeId" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="MacroProduct" Relationship="MacroProductosModel.MacroProductAccessTypes" FromRole="AccessType" ToRole="MacroProduct" />
+        </EntityType>
+        <Association Name="MacroProductAccessTypes">
+          <End Type="MacroProductosModel.AccessType" Role="AccessType" Multiplicity="*" />
+          <End Type="MacroProductosModel.MacroProduct" Role="MacroProduct" Multiplicity="*" />
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MacroProductosModelStoreContainer" CdmEntityContainer="MacroProductosEntities">
+          <EntitySetMapping Name="AmountType">
+            <EntityTypeMapping TypeName="MacroProductosModel.AmountType">
+              <MappingFragment StoreEntitySet="AmountType">
+                <ScalarProperty Name="AmountRequired" ColumnName="AmountRequired" />
+                <ScalarProperty Name="AmountTypeDescription" ColumnName="AmountTypeDescription" />
+                <ScalarProperty Name="AmountTypeName" ColumnName="AmountTypeName" />
+                <ScalarProperty Name="AmountTypeId" ColumnName="AmountTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BalanceType">
+            <EntityTypeMapping TypeName="MacroProductosModel.BalanceType">
+              <MappingFragment StoreEntitySet="BalanceType">
+                <ScalarProperty Name="BalanceTypeDescription" ColumnName="BalanceTypeDescription" />
+                <ScalarProperty Name="BalanceTypeName" ColumnName="BalanceTypeName" />
+                <ScalarProperty Name="BalanceTypeId" ColumnName="BalanceTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FieldType">
+            <EntityTypeMapping TypeName="MacroProductosModel.FieldType">
+              <MappingFragment StoreEntitySet="FieldType">
+                <ScalarProperty Name="FieldTypeDescription" ColumnName="FieldTypeDescription" />
+                <ScalarProperty Name="FieldTypeAcronym" ColumnName="FieldTypeAcronym" />
+                <ScalarProperty Name="FieldTypeName" ColumnName="FieldTypeName" />
+                <ScalarProperty Name="FieldTypeId" ColumnName="FieldTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MacroProduct">
+            <EntityTypeMapping TypeName="MacroProductosModel.MacroProduct">
+              <MappingFragment StoreEntitySet="MacroProduct">
+                <ScalarProperty Name="RequireQuery" ColumnName="RequireQuery" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="AmountField" ColumnName="AmountField" />
+                <ScalarProperty Name="ExchangeRate" ColumnName="ExchangeRate" />
+                <ScalarProperty Name="CurrencySale" ColumnName="CurrencySale" />
+                <ScalarProperty Name="CurrencyPurchase" ColumnName="CurrencyPurchase" />
+                <ScalarProperty Name="OwnerCountryId" ColumnName="OwnerCountryId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="MandatoryPrint" ColumnName="MandatoryPrint" />
+                <ScalarProperty Name="Rank" ColumnName="Rank" />
+                <ScalarProperty Name="AmountTypeId" ColumnName="AmountTypeId" />
+                <ScalarProperty Name="Reprint" ColumnName="Reprint" />
+                <ScalarProperty Name="FeePlus" ColumnName="FeePlus" />
+                <ScalarProperty Name="FeePercent" ColumnName="FeePercent" />
+                <ScalarProperty Name="MacroProductName" ColumnName="MacroProductName" />
+                <ScalarProperty Name="BalanceTypeId" ColumnName="BalanceTypeId" />
+                <ScalarProperty Name="SubcategoryId" ColumnName="SubcategoryId" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="MacroProductId" ColumnName="MacroProductId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MacroProductBranch">
+            <EntityTypeMapping TypeName="MacroProductosModel.MacroProductBranch">
+              <MappingFragment StoreEntitySet="MacroProductBranch">
+                <ScalarProperty Name="MacroProductChannelId" ColumnName="MacroProductChannelId" />
+                <ScalarProperty Name="MacroProductId" ColumnName="MacroProductId" />
+                <ScalarProperty Name="PlatformId" ColumnName="PlatformId" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="MacroProductBranchId" ColumnName="MacroProductBranchId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MacroProductChannel">
+            <EntityTypeMapping TypeName="MacroProductosModel.MacroProductChannel">
+              <MappingFragment StoreEntitySet="MacroProductChannel">
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="Load" ColumnName="Load" />
+                <ScalarProperty Name="PlatformId" ColumnName="PlatformId" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="MacroProductId" ColumnName="MacroProductId" />
+                <ScalarProperty Name="MacroProductChannelId" ColumnName="MacroProductChannelId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MacroProductValue">
+            <EntityTypeMapping TypeName="MacroProductosModel.MacroProductValue">
+              <MappingFragment StoreEntitySet="MacroProductValue">
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="ValueName" ColumnName="ValueName" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="MacroProductId" ColumnName="MacroProductId" />
+                <ScalarProperty Name="MacroProductFieldId" ColumnName="MacroProductFieldId" />
+                <ScalarProperty Name="MacroProductValueId" ColumnName="MacroProductValueId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubCategory">
+            <EntityTypeMapping TypeName="MacroProductosModel.SubCategory">
+              <MappingFragment StoreEntitySet="SubCategory">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Rank" ColumnName="Rank" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="SubCategoryName" ColumnName="SubCategoryName" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="SubCategoryId" ColumnName="SubCategoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MacroProductField">
+            <EntityTypeMapping TypeName="MacroProductosModel.MacroProductField">
+              <MappingFragment StoreEntitySet="MacroProductField">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Mandatory" ColumnName="Mandatory" />
+                <ScalarProperty Name="Max" ColumnName="Max" />
+                <ScalarProperty Name="Min" ColumnName="Min" />
+                <ScalarProperty Name="MapValueTo" ColumnName="MapValueTo" />
+                <ScalarProperty Name="MapValueNameTo" ColumnName="MapValueNameTo" />
+                <ScalarProperty Name="FieldLength" ColumnName="FieldLength" />
+                <ScalarProperty Name="FieldFormat" ColumnName="FieldFormat" />
+                <ScalarProperty Name="FieldName" ColumnName="FieldName" />
+                <ScalarProperty Name="FieldTypeId" ColumnName="FieldTypeId" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="MacroProductId" ColumnName="MacroProductId" />
+                <ScalarProperty Name="MacroProductFieldId" ColumnName="MacroProductFieldId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Category">
+            <EntityTypeMapping TypeName="MacroProductosModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Rank" ColumnName="Rank" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FavoriteAmounts">
+            <EntityTypeMapping TypeName="MacroProductosModel.FavoriteAmounts">
+              <MappingFragment StoreEntitySet="FavoriteAmounts">
+                <ScalarProperty Name="Rank" ColumnName="Rank" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="MacroProductId" ColumnName="MacroProductId" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AccessType">
+            <EntityTypeMapping TypeName="MacroProductosModel.AccessType">
+              <MappingFragment StoreEntitySet="AccessType">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="AccessTypeId" ColumnName="AccessTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="MacroProductAccessTypes" TypeName="MacroProductosModel.MacroProductAccessTypes" StoreEntitySet="MacroProductAccessTypes">
+            <EndProperty Name="MacroProduct">
+              <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+              <ScalarProperty Name="MacroProductId" ColumnName="MacroProductId" />
+            </EndProperty>
+            <EndProperty Name="AccessType">
+              <ScalarProperty Name="AccessTypeId" ColumnName="AccessTypeId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,1467 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://scio-sa.com/webservices/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://scio-sa.com/webservices/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://scio-sa.com/webservices/">
+      <s:element name="NewSale">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdProduct" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Customer" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CommitSale" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NewSaleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="NewSaleResult" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdTransaccion" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="SaleData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NewSaleWithExternalId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdProduct" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Customer" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CommitSale" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ExternalId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PdvRepresented" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NewSaleWithExternalIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="NewSaleWithExternalIdResult" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdTransaccion" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="SaleData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NewSaleWithMethodPayment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdProduct" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Customer" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CommitSale" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ExternalId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PdvRepresented" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MethodPayment" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NewSaleWithMethodPaymentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="NewSaleWithMethodPaymentResult" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdTransaccion" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="SaleData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NewSaleCheckingExternalId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdProduct" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Customer" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CommitSale" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ExternalId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PdvRepresented" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NewSaleCheckingExternalIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="NewSaleCheckingExternalIdResult" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdTransaccion" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="DataSale" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NewSaleDeferred">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdProduct" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="Customer" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="DeferredMinutes" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="IdTransaccionPos" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NewSaleDeferredResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="NewSaleDeferredResult" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdTransaccion" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="SaleData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CommitSale">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdTransaccion" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CommitSaleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CommitSaleResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="SaleData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelSale">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdTransaccion" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelSaleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CancelSaleResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AnullDiffSale">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdTransaction" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="IdTransaccionPos" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AnullDiffSaleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AnullDiffSaleResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReloadState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdTransaccion" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Target" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReloadStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetReloadStateResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaleState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdTransaccion" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Target" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaleStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SaleStateResult" type="tns:SaleData" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SaleData">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdTransaccion" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Customer" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Date" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReloadState" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReloadStateCode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SaleStateByExternalId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ExternalId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaleStateByExternalIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SaleStateByExternalIdResult" type="tns:SaleData" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaleCountBySeller">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaleCountBySellerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SaleCountBySellerResult" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Count" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AsynchronousOperation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="SaleId" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="Comment" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Action" type="tns:AsynchronousOperation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="AsynchronousOperation">
+        <s:restriction base="s:string">
+          <s:enumeration value="Reprocess" />
+          <s:enumeration value="Revoke" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="AsynchronousOperationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AsynchronousOperationResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAccountBank">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAccountBankResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAccountBankResult" type="tns:ArrayOfBankAccount" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBankAccount">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BankAccount" nillable="true" type="tns:BankAccount" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BankAccount">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Number" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CBU" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BankId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BankName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InformPayment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="accountNumber" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="ticket" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="paymentDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="amount" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="comment" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InformPaymentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InformPaymentResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateStockDistribution">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="retailerIdTO" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="amount" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateStockDistributionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateStockDistributionResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetParentDescendents">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Level" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetParentDescendentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetParentDescendentsResult" type="tns:ArrayOfRetailer" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfRetailer">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Retailer" nillable="true" type="tns:Retailer" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Retailer">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ValidateDescendent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="RetailerIdTo" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateDescendentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ValidateDescendentResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NewSaleWithTimeout">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdProduct" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Customer" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CommitSale" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="TimeoutSeconds" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NewSaleWithTimeoutResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="NewSaleWithTimeoutResult" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdTransaccion" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="SaleData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProducts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProductsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProductsResult" type="tns:ArrayOfProduct" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfProduct">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Product" nillable="true" type="tns:Product" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Product">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProviderId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ModuleId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAccountBalance">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAccountBalanceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetAccountBalanceResult" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProviders">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProvidersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProvidersResult" type="tns:ArrayOfProvider" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfProvider">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Provider" nillable="true" type="tns:Provider" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Provider">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetChildRetailers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetChildRetailersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetChildRetailersResult" type="tns:ArrayOfProvider" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AccessId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="AccessType" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LoginResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginWithTerminal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AccessId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="AccessType" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="TerminalId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginWithTerminalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LoginWithTerminalResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginForChangePassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AccessId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="AccessType" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="TerminalId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginForChangePasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LoginForChangePasswordResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogOff">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogOffResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ChangeUserPassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="OldPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NewPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangeUserPasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ChangeUserPasswordResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangeUserPasswordByAccessId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AccessId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OldPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NewPassword" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="AccessType" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangeUserPasswordByAccessIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ChangeUserPasswordByAccessIdResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPrivileges">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPrivilegesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetPrivilegesResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Privileges" type="tns:ArrayOfPrivilegeInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfPrivilegeInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PrivilegeInfo" nillable="true" type="tns:PrivilegeInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PrivilegeInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ParentId" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProdParam" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="NewSaleSoapIn">
+    <wsdl:part name="parameters" element="tns:NewSale" />
+  </wsdl:message>
+  <wsdl:message name="NewSaleSoapOut">
+    <wsdl:part name="parameters" element="tns:NewSaleResponse" />
+  </wsdl:message>
+  <wsdl:message name="NewSaleWithExternalIdSoapIn">
+    <wsdl:part name="parameters" element="tns:NewSaleWithExternalId" />
+  </wsdl:message>
+  <wsdl:message name="NewSaleWithExternalIdSoapOut">
+    <wsdl:part name="parameters" element="tns:NewSaleWithExternalIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="NewSaleWithMethodPaymentSoapIn">
+    <wsdl:part name="parameters" element="tns:NewSaleWithMethodPayment" />
+  </wsdl:message>
+  <wsdl:message name="NewSaleWithMethodPaymentSoapOut">
+    <wsdl:part name="parameters" element="tns:NewSaleWithMethodPaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="NewSaleCheckingExternalIdSoapIn">
+    <wsdl:part name="parameters" element="tns:NewSaleCheckingExternalId" />
+  </wsdl:message>
+  <wsdl:message name="NewSaleCheckingExternalIdSoapOut">
+    <wsdl:part name="parameters" element="tns:NewSaleCheckingExternalIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="NewSaleDeferredSoapIn">
+    <wsdl:part name="parameters" element="tns:NewSaleDeferred" />
+  </wsdl:message>
+  <wsdl:message name="NewSaleDeferredSoapOut">
+    <wsdl:part name="parameters" element="tns:NewSaleDeferredResponse" />
+  </wsdl:message>
+  <wsdl:message name="CommitSaleSoapIn">
+    <wsdl:part name="parameters" element="tns:CommitSale" />
+  </wsdl:message>
+  <wsdl:message name="CommitSaleSoapOut">
+    <wsdl:part name="parameters" element="tns:CommitSaleResponse" />
+  </wsdl:message>
+  <wsdl:message name="CancelSaleSoapIn">
+    <wsdl:part name="parameters" element="tns:CancelSale" />
+  </wsdl:message>
+  <wsdl:message name="CancelSaleSoapOut">
+    <wsdl:part name="parameters" element="tns:CancelSaleResponse" />
+  </wsdl:message>
+  <wsdl:message name="AnullDiffSaleSoapIn">
+    <wsdl:part name="parameters" element="tns:AnullDiffSale" />
+  </wsdl:message>
+  <wsdl:message name="AnullDiffSaleSoapOut">
+    <wsdl:part name="parameters" element="tns:AnullDiffSaleResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetReloadStateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReloadState" />
+  </wsdl:message>
+  <wsdl:message name="GetReloadStateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetReloadStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaleStateSoapIn">
+    <wsdl:part name="parameters" element="tns:SaleState" />
+  </wsdl:message>
+  <wsdl:message name="SaleStateSoapOut">
+    <wsdl:part name="parameters" element="tns:SaleStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaleStateByExternalIdSoapIn">
+    <wsdl:part name="parameters" element="tns:SaleStateByExternalId" />
+  </wsdl:message>
+  <wsdl:message name="SaleStateByExternalIdSoapOut">
+    <wsdl:part name="parameters" element="tns:SaleStateByExternalIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaleCountBySellerSoapIn">
+    <wsdl:part name="parameters" element="tns:SaleCountBySeller" />
+  </wsdl:message>
+  <wsdl:message name="SaleCountBySellerSoapOut">
+    <wsdl:part name="parameters" element="tns:SaleCountBySellerResponse" />
+  </wsdl:message>
+  <wsdl:message name="AsynchronousOperationSoapIn">
+    <wsdl:part name="parameters" element="tns:AsynchronousOperation" />
+  </wsdl:message>
+  <wsdl:message name="AsynchronousOperationSoapOut">
+    <wsdl:part name="parameters" element="tns:AsynchronousOperationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountBankSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAccountBank" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountBankSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAccountBankResponse" />
+  </wsdl:message>
+  <wsdl:message name="InformPaymentSoapIn">
+    <wsdl:part name="parameters" element="tns:InformPayment" />
+  </wsdl:message>
+  <wsdl:message name="InformPaymentSoapOut">
+    <wsdl:part name="parameters" element="tns:InformPaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateStockDistributionSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateStockDistribution" />
+  </wsdl:message>
+  <wsdl:message name="CreateStockDistributionSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateStockDistributionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetParentDescendentsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetParentDescendents" />
+  </wsdl:message>
+  <wsdl:message name="GetParentDescendentsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetParentDescendentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidateDescendentSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidateDescendent" />
+  </wsdl:message>
+  <wsdl:message name="ValidateDescendentSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidateDescendentResponse" />
+  </wsdl:message>
+  <wsdl:message name="NewSaleWithTimeoutSoapIn">
+    <wsdl:part name="parameters" element="tns:NewSaleWithTimeout" />
+  </wsdl:message>
+  <wsdl:message name="NewSaleWithTimeoutSoapOut">
+    <wsdl:part name="parameters" element="tns:NewSaleWithTimeoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProductsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProducts" />
+  </wsdl:message>
+  <wsdl:message name="GetProductsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProductsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountBalanceSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAccountBalance" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountBalanceSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAccountBalanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProvidersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProviders" />
+  </wsdl:message>
+  <wsdl:message name="GetProvidersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProvidersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetChildRetailersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetChildRetailers" />
+  </wsdl:message>
+  <wsdl:message name="GetChildRetailersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetChildRetailersResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapIn">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginWithTerminalSoapIn">
+    <wsdl:part name="parameters" element="tns:LoginWithTerminal" />
+  </wsdl:message>
+  <wsdl:message name="LoginWithTerminalSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginWithTerminalResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginForChangePasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:LoginForChangePassword" />
+  </wsdl:message>
+  <wsdl:message name="LoginForChangePasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginForChangePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="LogOffSoapIn">
+    <wsdl:part name="parameters" element="tns:LogOff" />
+  </wsdl:message>
+  <wsdl:message name="LogOffSoapOut">
+    <wsdl:part name="parameters" element="tns:LogOffResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChangeUserPasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:ChangeUserPassword" />
+  </wsdl:message>
+  <wsdl:message name="ChangeUserPasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:ChangeUserPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChangeUserPasswordByAccessIdSoapIn">
+    <wsdl:part name="parameters" element="tns:ChangeUserPasswordByAccessId" />
+  </wsdl:message>
+  <wsdl:message name="ChangeUserPasswordByAccessIdSoapOut">
+    <wsdl:part name="parameters" element="tns:ChangeUserPasswordByAccessIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPrivilegesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPrivileges" />
+  </wsdl:message>
+  <wsdl:message name="GetPrivilegesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPrivilegesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SaleInterfaceSoap">
+    <wsdl:operation name="NewSale">
+      <wsdl:input message="tns:NewSaleSoapIn" />
+      <wsdl:output message="tns:NewSaleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NewSaleWithExternalId">
+      <wsdl:input message="tns:NewSaleWithExternalIdSoapIn" />
+      <wsdl:output message="tns:NewSaleWithExternalIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NewSaleWithMethodPayment">
+      <wsdl:input message="tns:NewSaleWithMethodPaymentSoapIn" />
+      <wsdl:output message="tns:NewSaleWithMethodPaymentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NewSaleCheckingExternalId">
+      <wsdl:input message="tns:NewSaleCheckingExternalIdSoapIn" />
+      <wsdl:output message="tns:NewSaleCheckingExternalIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NewSaleDeferred">
+      <wsdl:input message="tns:NewSaleDeferredSoapIn" />
+      <wsdl:output message="tns:NewSaleDeferredSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CommitSale">
+      <wsdl:input message="tns:CommitSaleSoapIn" />
+      <wsdl:output message="tns:CommitSaleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelSale">
+      <wsdl:input message="tns:CancelSaleSoapIn" />
+      <wsdl:output message="tns:CancelSaleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AnullDiffSale">
+      <wsdl:input message="tns:AnullDiffSaleSoapIn" />
+      <wsdl:output message="tns:AnullDiffSaleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReloadState">
+      <wsdl:input message="tns:GetReloadStateSoapIn" />
+      <wsdl:output message="tns:GetReloadStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaleState">
+      <wsdl:input message="tns:SaleStateSoapIn" />
+      <wsdl:output message="tns:SaleStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaleStateByExternalId">
+      <wsdl:input message="tns:SaleStateByExternalIdSoapIn" />
+      <wsdl:output message="tns:SaleStateByExternalIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaleCountBySeller">
+      <wsdl:input message="tns:SaleCountBySellerSoapIn" />
+      <wsdl:output message="tns:SaleCountBySellerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AsynchronousOperation">
+      <wsdl:input message="tns:AsynchronousOperationSoapIn" />
+      <wsdl:output message="tns:AsynchronousOperationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountBank">
+      <wsdl:input message="tns:GetAccountBankSoapIn" />
+      <wsdl:output message="tns:GetAccountBankSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InformPayment">
+      <wsdl:input message="tns:InformPaymentSoapIn" />
+      <wsdl:output message="tns:InformPaymentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateStockDistribution">
+      <wsdl:input message="tns:CreateStockDistributionSoapIn" />
+      <wsdl:output message="tns:CreateStockDistributionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetParentDescendents">
+      <wsdl:input message="tns:GetParentDescendentsSoapIn" />
+      <wsdl:output message="tns:GetParentDescendentsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateDescendent">
+      <wsdl:input message="tns:ValidateDescendentSoapIn" />
+      <wsdl:output message="tns:ValidateDescendentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NewSaleWithTimeout">
+      <wsdl:input message="tns:NewSaleWithTimeoutSoapIn" />
+      <wsdl:output message="tns:NewSaleWithTimeoutSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProducts">
+      <wsdl:input message="tns:GetProductsSoapIn" />
+      <wsdl:output message="tns:GetProductsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountBalance">
+      <wsdl:input message="tns:GetAccountBalanceSoapIn" />
+      <wsdl:output message="tns:GetAccountBalanceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProviders">
+      <wsdl:input message="tns:GetProvidersSoapIn" />
+      <wsdl:output message="tns:GetProvidersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChildRetailers">
+      <wsdl:input message="tns:GetChildRetailersSoapIn" />
+      <wsdl:output message="tns:GetChildRetailersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input message="tns:LoginSoapIn" />
+      <wsdl:output message="tns:LoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginWithTerminal">
+      <wsdl:input message="tns:LoginWithTerminalSoapIn" />
+      <wsdl:output message="tns:LoginWithTerminalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginForChangePassword">
+      <wsdl:input message="tns:LoginForChangePasswordSoapIn" />
+      <wsdl:output message="tns:LoginForChangePasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogOff">
+      <wsdl:input message="tns:LogOffSoapIn" />
+      <wsdl:output message="tns:LogOffSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeUserPassword">
+      <wsdl:input message="tns:ChangeUserPasswordSoapIn" />
+      <wsdl:output message="tns:ChangeUserPasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeUserPasswordByAccessId">
+      <wsdl:input message="tns:ChangeUserPasswordByAccessIdSoapIn" />
+      <wsdl:output message="tns:ChangeUserPasswordByAccessIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPrivileges">
+      <wsdl:input message="tns:GetPrivilegesSoapIn" />
+      <wsdl:output message="tns:GetPrivilegesSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SaleInterfaceSoap" type="tns:SaleInterfaceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="NewSale">
+      <soap:operation soapAction="http://scio-sa.com/webservices/NewSale" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewSaleWithExternalId">
+      <soap:operation soapAction="http://scio-sa.com/webservices/NewSaleWithExternalId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewSaleWithMethodPayment">
+      <soap:operation soapAction="http://scio-sa.com/webservices/NewSaleWithMethodPayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewSaleCheckingExternalId">
+      <soap:operation soapAction="http://scio-sa.com/webservices/NewSaleCheckingExternalId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewSaleDeferred">
+      <soap:operation soapAction="http://scio-sa.com/webservices/NewSaleDeferred" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CommitSale">
+      <soap:operation soapAction="http://scio-sa.com/webservices/CommitSale" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelSale">
+      <soap:operation soapAction="http://scio-sa.com/webservices/CancelSale" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AnullDiffSale">
+      <soap:operation soapAction="http://scio-sa.com/webservices/AnullDiffSale" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReloadState">
+      <soap:operation soapAction="http://scio-sa.com/webservices/GetReloadState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaleState">
+      <soap:operation soapAction="http://scio-sa.com/webservices/SaleState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaleStateByExternalId">
+      <soap:operation soapAction="http://scio-sa.com/webservices/SaleStateByExternalId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaleCountBySeller">
+      <soap:operation soapAction="http://scio-sa.com/webservices/SaleCountBySeller" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AsynchronousOperation">
+      <soap:operation soapAction="http://scio-sa.com/webservices/AsynchronousOperation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountBank">
+      <soap:operation soapAction="http://scio-sa.com/webservices/GetAccountBank" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InformPayment">
+      <soap:operation soapAction="http://scio-sa.com/webservices/InformPayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateStockDistribution">
+      <soap:operation soapAction="http://scio-sa.com/webservices/CreateStockDistribution" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetParentDescendents">
+      <soap:operation soapAction="http://scio-sa.com/webservices/GetParentDescendents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateDescendent">
+      <soap:operation soapAction="http://scio-sa.com/webservices/ValidateDescendent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewSaleWithTimeout">
+      <soap:operation soapAction="http://scio-sa.com/webservices/NewSaleWithTimeout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProducts">
+      <soap:operation soapAction="http://scio-sa.com/webservices/GetProducts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountBalance">
+      <soap:operation soapAction="http://scio-sa.com/webservices/GetAccountBalance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProviders">
+      <soap:operation soapAction="http://scio-sa.com/webservices/GetProviders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChildRetailers">
+      <soap:operation soapAction="http://scio-sa.com/webservices/GetChildRetailers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://scio-sa.com/webservices/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginWithTerminal">
+      <soap:operation soapAction="http://scio-sa.com/webservices/LoginWithTerminal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginForChangePassword">
+      <soap:operation soapAction="http://scio-sa.com/webservices/LoginForChangePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogOff">
+      <soap:operation soapAction="http://scio-sa.com/webservices/LogOff" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeUserPassword">
+      <soap:operation soapAction="http://scio-sa.com/webservices/ChangeUserPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeUserPasswordByAccessId">
+      <soap:operation soapAction="http://scio-sa.com/webservices/ChangeUserPasswordByAccessId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrivileges">
+      <soap:operation soapAction="http://scio-sa.com/webservices/GetPrivileges" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SaleInterfaceSoap12" type="tns:SaleInterfaceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="NewSale">
+      <soap12:operation soapAction="http://scio-sa.com/webservices/NewSale" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewSaleWithExternalId">
+      <soap12:operation soapAction="http://scio-sa.com/webservices/NewSaleWithExternalId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewSaleWithMethodPayment">
+      <soap12:operation soapAction="http://scio-sa.com/webservices/NewSaleWithMethodPayment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewSaleCheckingExternalId">
+      <soap12:operation soapAction="http://scio-sa.com/webservices/NewSaleCheckingExternalId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewSaleDeferred">
+      <soap12:operation soapAction="http://scio-sa.com/webservices/NewSaleDeferred" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CommitSale">
+      <soap12:operation soapAction="http://scio-sa.com/webservices/CommitSale" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelSale">
+      <soap12:operation soapAction="http://scio-sa.com/webservices/CancelSale" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AnullDiffSale">
+      <soap12:operation soapAction="http://scio-sa.com/webservices/AnullDiffSale" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReloadState">
+      <soap12:operation soapAction="http://scio-sa.com/webservices/GetReloadState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaleState">
+      <soap12:operation soapAction="http://scio-sa.com/webservices/SaleState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaleStateByExternalId">
+      <soap12:operation soapAction="http://scio-sa.com/webservices/SaleStateByExternalId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaleCountBySeller">
+      <soap12:operation soapAction="http://scio-sa.com/webservices/SaleCountBySeller" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AsynchronousOperation">
+      <soap12:operation soapAction="http://scio-sa.com/webservices/AsynchronousOperation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountBank">
+      <soap12:operation soapAction="http://scio-sa.com/webservices/GetAccountBank" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InformPayment">
+      <soap12:operation soapAction="http://scio-sa.com/webservices/InformPayment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateStockDistribution">
+      <soap12:operation soapAction="http://scio-sa.com/webservices/CreateStockDistribution" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetParentDescendents">
+      <soap12:operation soapAction="http://scio-sa.com/webservices/GetParentDescendents" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateDescendent">
+      <soap12:operation soapAction="http://scio-sa.com/webservices/ValidateDescendent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewSaleWithTimeout">
+      <soap12:operation soapAction="http://scio-sa.com/webservices/NewSaleWithTimeout" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProducts">
+      <soap12:operation soapAction="http://scio-sa.com/webservices/GetProducts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountBalance">
+      <soap12:operation soapAction="http://scio-sa.com/webservices/GetAccountBalance" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProviders">
+      <soap12:operation soapAction="http://scio-sa.com/webservices/GetProviders" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChildRetailers">
+      <soap12:operation soapAction="http://scio-sa.com/webservices/GetChildRetailers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="http://scio-sa.com/webservices/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginWithTerminal">
+      <soap12:operation soapAction="http://scio-sa.com/webservices/LoginWithTerminal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginForChangePassword">
+      <soap12:operation soapAction="http://scio-sa.com/webservices/LoginForChangePassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogOff">
+      <soap12:operation soapAction="http://scio-sa.com/webservices/LogOff" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeUserPassword">
+      <soap12:operation soapAction="http://scio-sa.com/webservices/ChangeUserPassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeUserPasswordByAccessId">
+      <soap12:operation soapAction="http://scio-sa.com/webservices/ChangeUserPasswordByAccessId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrivileges">
+      <soap12:operation soapAction="http://scio-sa.com/webservices/GetPrivileges" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SaleInterface">
+    <wsdl:port name="SaleInterfaceSoap" binding="tns:SaleInterfaceSoap">
+      <soap:address location="http://ws-ve.movilway.net:5974/Sales/SaleInterface.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SaleInterfaceSoap12" binding="tns:SaleInterfaceSoap12">
+      <soap12:address location="http://ws-ve.movilway.net:5974/Sales/SaleInterface.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

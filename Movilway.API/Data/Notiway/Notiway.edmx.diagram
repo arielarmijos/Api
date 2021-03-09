@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b62f7a3fa98e47b19e73ce2f1a8c1c9e" Name="Diagram1" ZoomLevel="93" ShowGrid="false">
+        <EntityTypeShape EntityType="NotiwayModel.AccessType" Width="1.5" PointX="9" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="NotiwayModel.AuditMessageEntry" Width="2.5" PointX="13.5" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NotiwayModel.AuditMessageScheduleEntry" Width="1.5" PointX="15.75" PointY="30.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="NotiwayModel.AuditMessageTicketEntry" Width="3" PointX="16.5" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="NotiwayModel.AuditMessageTicketScheduleEntry" Width="1.5" PointX="18.75" PointY="35" IsExpanded="true" />
+        <EntityTypeShape EntityType="NotiwayModel.Branch" Width="1.5" PointX="9" PointY="20.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="NotiwayModel.City" Width="1.5" PointX="6.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NotiwayModel.Country" Width="1.5" PointX="2.25" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NotiwayModel.Message" Width="1.5" PointX="11.25" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="NotiwayModel.MessageSchedule" Width="1.5" PointX="13.5" PointY="30.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="NotiwayModel.MessageTicket" Width="1.5" PointX="14.25" PointY="22.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="NotiwayModel.MessageTicketSchedule" Width="1.5" PointX="16.5" PointY="34.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="NotiwayModel.MessageType" Width="1.5" PointX="9" PointY="32.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="NotiwayModel.Platform" Width="1.5" PointX="0.75" PointY="24.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="NotiwayModel.Product" Width="1.5" PointX="19.5" PointY="23.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="NotiwayModel.Provider" Width="1.5" PointX="19.5" PointY="20.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="NotiwayModel.Province" Width="1.5" PointX="4.5" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="NotiwayModel.Status" Width="1.5" PointX="6.75" PointY="29.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="NotiwayModel.User" Width="1.5" PointX="17.25" PointY="22.875" IsExpanded="true" />
+        <AssociationConnector Association="NotiwayModel.FK_AuditMessageEntry_Message" ManuallyRouted="false" />
+        <AssociationConnector Association="NotiwayModel.FK_AuditMessageScheduleEntry_MessageSchedule" ManuallyRouted="false" />
+        <AssociationConnector Association="NotiwayModel.FK_AuditMessageTicketEntry_Message" ManuallyRouted="false" />
+        <AssociationConnector Association="NotiwayModel.FK_AuditMessageTicketScheduleEntry_MessageTicketSchedule" ManuallyRouted="false" />
+        <AssociationConnector Association="NotiwayModel.FK_Branch_Branch" ManuallyRouted="false" />
+        <AssociationConnector Association="NotiwayModel.FK_Branch_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="NotiwayModel.FK_Branch_Platform" ManuallyRouted="false" />
+        <AssociationConnector Association="NotiwayModel.FK_Branch_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="NotiwayModel.FK_Message_Branch" ManuallyRouted="false" />
+        <AssociationConnector Association="NotiwayModel.FK_MessageTicket_Branch" ManuallyRouted="false" />
+        <AssociationConnector Association="NotiwayModel.FK_User_Branch" ManuallyRouted="false" />
+        <AssociationConnector Association="NotiwayModel.FK_City_Province" ManuallyRouted="false" />
+        <AssociationConnector Association="NotiwayModel.FK_Message_City" ManuallyRouted="false" />
+        <AssociationConnector Association="NotiwayModel.FK_MessageTicket_City" ManuallyRouted="false" />
+        <AssociationConnector Association="NotiwayModel.FK_User_City" ManuallyRouted="false" />
+        <AssociationConnector Association="NotiwayModel.FK_Message_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="NotiwayModel.FK_MessageTicket_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="NotiwayModel.FK_Product_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="NotiwayModel.FK_Province_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="NotiwayModel.FK_Message_MessageType" ManuallyRouted="false" />
+        <AssociationConnector Association="NotiwayModel.FK_Message_Platform" ManuallyRouted="false" />
+        <AssociationConnector Association="NotiwayModel.FK_Message_Province" ManuallyRouted="false" />
+        <AssociationConnector Association="NotiwayModel.FK_Message_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="NotiwayModel.FK_MessageSchedule_Message" ManuallyRouted="false" />
+        <AssociationConnector Association="NotiwayModel.FK_MessageTicket_MessageType" ManuallyRouted="false" />
+        <AssociationConnector Association="NotiwayModel.FK_MessageTicket_Platform" ManuallyRouted="false" />
+        <AssociationConnector Association="NotiwayModel.FK_MessageTicket_Province" ManuallyRouted="false" />
+        <AssociationConnector Association="NotiwayModel.FK_MessageTicket_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="NotiwayModel.FK_MessageTicketSchedule_Message" ManuallyRouted="false" />
+        <AssociationConnector Association="NotiwayModel.FK_Product_Platform" ManuallyRouted="false" />
+        <AssociationConnector Association="NotiwayModel.FK_User_Platform" ManuallyRouted="false" />
+        <AssociationConnector Association="NotiwayModel.FK_Product_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="NotiwayModel.FK_Product_Provider" ManuallyRouted="false" />
+        <AssociationConnector Association="NotiwayModel.FK_User_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="NotiwayModel.FK_User_User" ManuallyRouted="false" />
+        <AssociationConnector Association="NotiwayModel.MessageAccessTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="NotiwayModel.MessageProducts" ManuallyRouted="false" />
+        <AssociationConnector Association="NotiwayModel.MessageProviders" ManuallyRouted="false" />
+        <AssociationConnector Association="NotiwayModel.MessageTicketAccessTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="NotiwayModel.MessageTicketProducts" ManuallyRouted="false" />
+        <AssociationConnector Association="NotiwayModel.MessageTicketProviders" ManuallyRouted="false" />
+        <AssociationConnector Association="NotiwayModel.FK_MessageSchedule_Status" />
+        <AssociationConnector Association="NotiwayModel.FK_MessageTicketSchedule_Status" />
+        <EntityTypeShape EntityType="NotiwayModel.Access" Width="1.5" PointX="4.5097715801139229" PointY="0.91052687210521044" />
+        <AssociationConnector Association="NotiwayModel.FK_Access_AccessType" />
+        <AssociationConnector Association="NotiwayModel.FK_Access_Status" />
+        <AssociationConnector Association="NotiwayModel.FK_Access_User" />
+        <EntityTypeShape EntityType="NotiwayModel.BranchProduct" Width="1.5" PointX="3.7458357996055094" PointY="3.2222175315125927" />
+        <EntityTypeShape EntityType="NotiwayModel.AuditMessage" Width="1.5" PointX="6.4088011059951038" PointY="7.8778103626695506" />
+        <EntityTypeShape EntityType="NotiwayModel.AuditMessageTicket" Width="1.5" PointX="1.1507540629947344" PointY="23.876722764166409" />
+        <AssociationConnector Association="NotiwayModel.FK_AuditMessage_Branch" />
+        <AssociationConnector Association="NotiwayModel.FK_AuditMessage_Country" />
+        <AssociationConnector Association="NotiwayModel.FK_AuditMessage_Message" />
+        <AssociationConnector Association="NotiwayModel.FK_AuditMessage_ParentBranch" />
+        <AssociationConnector Association="NotiwayModel.FK_AuditMessage_Platform" />
+        <AssociationConnector Association="NotiwayModel.FK_AuditMessage_User" />
+        <AssociationConnector Association="NotiwayModel.FK_AuditMessageTicket_Branch" />
+        <AssociationConnector Association="NotiwayModel.FK_AuditMessageTicket_Country" />
+        <AssociationConnector Association="NotiwayModel.FK_AuditMessageTicket_MessageTicket" />
+        <AssociationConnector Association="NotiwayModel.FK_AuditMessageTicket_ParentBranch" />
+        <AssociationConnector Association="NotiwayModel.FK_AuditMessageTicket_Platform" />
+        <AssociationConnector Association="NotiwayModel.FK_AuditMessageTicket_User" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

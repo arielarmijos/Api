@@ -1,0 +1,9 @@
+diff a/Movilway.API/Movilway.API.csproj b/Movilway.API/Movilway.API.csproj	(rejected hunks)
+@@ -376,6 +376,7 @@
+     <Compile Include="Service\ExtendedApi\Provider\Notiway\NotiwayProvider.cs">
+       <SubType>Code</SubType>
+     </Compile>
++    <Compile Include="Service\ExtendedApi\Provider\SecureServiceExecutionDelegator.cs" />
+     <Compile Include="Service\ExtendedApi\Provider\Utiba\RegenerateMoviPinProvider.cs" />
+     <Compile Include="Web References\KinacuLogisticsWebService\Reference.cs">
+       <AutoGen>True</AutoGen>

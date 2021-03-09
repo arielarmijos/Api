@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="UtibaRegistration">
+  <DataContextMoniker Name="/UtibaRegistrationDataContext" />
+  <nestedChildShapes>
+    <classShape Id="99f24b3e-7bbf-4d29-82a4-28b4f0c2060e" absoluteBounds="0.75, 1.125, 2, 1.5785953776041664">
+      <DataClassMoniker Name="/UtibaRegistrationDataContext/Country" />
+      <nestedChildShapes>
+        <elementListCompartment Id="83cd7025-57f1-4933-88dc-556787ce4fd8" absoluteBounds="0.765, 1.585, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d71f4e53-7db7-4161-9f42-c4a777f26bf4" absoluteBounds="3.5, 1, 2, 1.7708968098958329">
+      <DataClassMoniker Name="/UtibaRegistrationDataContext/Province" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e9e52cff-b326-4d29-b746-1389a567e98d" absoluteBounds="3.515, 1.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6107f78f-a276-4776-a437-e2ec6120d33e" absoluteBounds="6.25, 0.875, 2, 1.9631982421875003">
+      <DataClassMoniker Name="/UtibaRegistrationDataContext/City" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0e3e3f4b-1658-4581-9c79-fbc7d52d4757" absoluteBounds="6.265, 1.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 1.91429768880208); (3.5 : 1.91429768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/UtibaRegistrationDataContext/Country/Country_Province" />
+      <nodes>
+        <classShapeMoniker Id="99f24b3e-7bbf-4d29-82a4-28b4f0c2060e" />
+        <classShapeMoniker Id="d71f4e53-7db7-4161-9f42-c4a777f26bf4" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 1.88544840494792); (6.25 : 1.88544840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/UtibaRegistrationDataContext/Province/Province_City" />
+      <nodes>
+        <classShapeMoniker Id="d71f4e53-7db7-4161-9f42-c4a777f26bf4" />
+        <classShapeMoniker Id="6107f78f-a276-4776-a437-e2ec6120d33e" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

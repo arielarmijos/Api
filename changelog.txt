@@ -1,0 +1,286 @@
+v 4.13.6 (10-oct-17)
+
+Cambios
+
+- Se incluye el provider QueryPaymentProvider el cual envia una consulta a un protocolo determinado, segun la configuracion 
+  del archivo Xmls\ProductQueryInfo.xml
+
+Dependencias:
+
+- Movilway.Logging v2.0.0
+- EntityFramework v5.0.20627.0
+- log4net v1.2.13
+
+
+v4.12.3 (07-jun-17)
+
+Cambios
+
+- Modificaciones API Cash472 para soportar la emisión y pago de giros a través de la aplicación móvil
+
+Dependencias:
+
+- Movilway.Logging v2.0.0
+- EntityFramework v5.0.20627.0
+- log4net v1.2.13
+
+=============================================================
+
+v4.12.2 (22-feb-17)
+
+Cambios
+
+- Hotfix actualización agencias, se sobreescribía fecha de creación en base de datos Kinacu
+- Nuevo método "CreditNote", para realizar notas crédito a través de PosWeb
+
+Dependencias:
+
+- Movilway.Logging v2.0.0
+- EntityFramework v5.0.20627.0
+- log4net v1.2.13
+
+=============================================================
+
+v4.11.4 (30-nov-16)
+
+Cambios
+
+- Hotfix reporte de transacciones H2H, un JOIN en la consulta se estaba realizando indebidamente
+
+Dependencias:
+
+- Movilway.Logging v2.0.0
+- EntityFramework v5.0.20627.0
+- log4net v1.2.13
+
+=============================================================
+
+v4.11.3 (15-nov-16)
+
+Se incluye un tickete que va ha ser manejado por el api.Se incluye el campo Stock solo para accesos pos cuando se realiza un get transaction solo (Configurbale) 
+
+=============================================================
+
+v4.7.11 (15-ene-16)
+
+Cambios:
+
+- Nuevo método GetBankListApp para solucionar problema de concurrencia al consumir el método GetBankList desde la librería C#
+
+Dependencias:
+
+- Movilway.Logging v2.0.0
+- EntityFramework v5.0.20627.0
+- log4net v1.2.13
+
+=============================================================
+
+v4.7.10 (14-ene-16)
+
+Cambios:
+
+- BUGFIX - Manejo correcto de sesión cuando la clave es válida pero está expirada
+- BUGFIX - Se corrigió problema en el caché de saldo para H2H
+- Optimización de consulta en método GetAgentDistributionList para obtener agencias Hijas
+
+Dependencias:
+
+- Movilway.Logging v2.0.0
+- EntityFramework v5.0.20627.0
+- log4net v1.2.13
+
+=============================================================
+
+v4.7.9 (18-dic-15)
+
+Cambios:
+
+- HOTFIX: Notiway => se reemplaza todo linq a favor de queries directos a db
+
+Dependencias:
+
+- Movilway.Logging v2.0.0
+- EntityFramework v5.0.20627.0
+- log4net v1.2.13
+
+=============================================================
+
+v4.7.8 (16-dic-15)
+
+Cambios:
+
+- HOTFIX: Notiway => lista de noticias hacía join innecesario contra tabla de auditoria
+
+Dependencias:
+
+- Movilway.Logging v2.0.0
+- EntityFramework v5.0.20627.0
+- log4net v1.2.13
+
+=============================================================
+
+v4.7.1 (11-sep-15)
+
+Cambios:
+
+- HOTFIX: reportes Posweb/App, se incluyen solicitudes de distrubición y se diferencian comisiones realizadas y recibidas
+
+Dependencias:
+
+- Movilway.Logging v2.0.0
+- EntityFramework v5.0.20627.0
+- log4net v1.2.13
+
+=============================================================
+
+v4.5.4 (12-may-15)
+
+Cambios:
+
+- HOTFIX: se habilita notiway con opción de habilitado/deshabilitado en el .config (por omisión esta habilitado)
+
+Dependencias:
+
+- Movilway.Logging v2.0.0
+- EntityFramework v5.0.20627.0
+- log4net v1.2.13
+
+=============================================================
+
+v4.5.3 (08-may-15)
+
+Cambios:
+
+- RELEASE: se corrijio la actualizacion de usuarios y se incluyo validacion al momento de asignar productos
+
+Dependencias:
+
+- Movilway.Logging v2.0.0
+- EntityFramework v5.0.20627.0
+- log4net v1.2.13
+
+=============================================================
+
+v4.5.2 (08-may-15)
+
+Cambios:
+
+- HOTFIX: se deshabilita notiway por el momento
+
+Dependencias:
+
+- Movilway.Logging v2.0.0
+- EntityFramework v5.0.20627.0
+- log4net v1.2.13
+
+=============================================================
+
+v4.0.6 (28-feb-14)
+
+Cambios:
+
+- Nuevo método GetRoles en Kinacu
+- Nuevo método GetAgentDistributionList, para obtener las agencias de la distribución múltiple
+- BUGFIX: al momento de hacer ToString en algunas clases explotaba si era vacía la lista
+- El método GetLastTransactions ahora permite consultar las transacciones de un tipo en particular
+- El método Transfer ahora procesa montos negativos a maldad
+- Al hacer login el código 1017 se parsea a 1013
+- Al hacer changePin se maneja el 1013
+
+Dependencias:
+
+- Movilway.Logging v2.0.0
+- EntityFramework v5.0.20627.0
+- log4net v1.2.10
+
+=============================================================
+
+v4.0.5 (09-ene-14)
+
+Cambios:
+
+- HOTFIX: Error al hacer una transferencia desde una agencia que no tenía hijos
+
+Dependencias:
+
+- Movilway.Logging v2.0.0
+- EntityFramework v5.0.20627.0
+- log4net v1.2.10
+
+=============================================================
+
+v4.0.4 (11-dic-13)
+
+Cambios:
+
+- HOTFIX: Error al momento de escribir el log de GetLastTransactions si no encontraba ninguna transacción
+
+Dependencias:
+
+- Movilway.Logging v2.0.0
+- EntityFramework v5.0.20627.0
+- log4net v1.2.10
+
+=============================================================
+
+v4.0.3 (04-dic-13)
+
+Cambios:
+
+- BUGFIX: Mejorado nuevamente el random para determinar el hilo de ejecución
+- BUGFIX: Corregido problema al transferir a una agencia sin hijos
+- BUGFIX: Validación sobre la IP de origen al escribir en el log (try/catch)
+- Nuevo método GetScore de Loyalty
+- Métodos con logs mejorados: Transfer, GetLastTransactions, GetAgentInfo, ChangePin, GetChildList y GetScore
+
+Dependencias:
+
+- Movilway.Logging v2.0.0
+- EntityFramework v5.0.20627.0
+- log4net v1.2.10
+
+=============================================================
+
+v4.0.2 (14-nov-13)
+
+Cambios:
+
+- HOTFIX: problema al momento de escribir en el log cuando se llamaba una plataforma directamente
+- Mejorado el random para determinar el hilo de ejecución
+- En el ResponseMessage del TopUp ya no se concatena el message
+- BUGFIX: al escribir el resultado de GetTransaction la condición de escribir el detalle estaba invertida
+
+Dependencias:
+
+- Movilway.Logging v2.0.0
+- EntityFramework v5.0.20627.0
+- log4net v1.2.10
+
+=============================================================
+
+v4.0.1 (12-nov-13)
+
+Cambios:
+
+- Cambio total en los logs de los métodos: GetSession, GetProducts, TopUp, GetTransaction y GetBalance.
+- Nuevo provider Notiway para PosWeb
+
+Dependencias:
+
+- Movilway.Logging v2.0.0
+- EntityFramework v5.0.20627.0
+- log4net v1.2.10
+
+=============================================================
+
+v4.0.0 (28-oct-13)
+
+Cambios:
+
+- Cambio en el manejador de versiones, pasamos de SVN a GIT
+
+Dependencias:
+
+- Movilway.Logging v1.0.3
+- EntityFramework v5.0.20627.0
+- log4net v1.2.10

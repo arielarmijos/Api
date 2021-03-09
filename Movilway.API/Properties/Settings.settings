@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Movilway.API.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Movilway_API_KinacuWebService_SaleInterface" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://ws-ve.movilway.net:5974/Sales/SaleInterface.asmx</Value>
+    </Setting>
+    <Setting Name="Movilway_API_KinacuLogisticsWebService_LogisticsInterface" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://ws-co-dev.movilway.net:5974/Sales/LogisticsInterface.asmx</Value>
+    </Setting>
+    <Setting Name="Movilway_API_KinacuManagementWebService_ManagementInterface" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://ws-co-dev.movilway.net:5974/Sales/ManagementInterface.asmx</Value>
+    </Setting>
+    <Setting Name="Movilway_API_SMSDispatch_Dispatch_SMS_web__service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://telemo.com.ve/ws/sms/server.php</Value>
+    </Setting>
+    <Setting Name="Movilway_API_PSE_PSE" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://www.enlineapagos.com:443/secure/webservices/WS_PSE.do</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

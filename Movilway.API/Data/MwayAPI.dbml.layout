@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="MwayAPI">
+  <DataContextMoniker Name="/MwayAPIDataContext" />
+  <nestedChildShapes>
+    <classShape Id="73ce9649-4ecc-41e2-be00-bd1f1cb8da78" absoluteBounds="5, 2.125, 2, 3.1170068359375">
+      <DataClassMoniker Name="/MwayAPIDataContext/TransactionLog" />
+      <nestedChildShapes>
+        <elementListCompartment Id="24b60de4-8fd9-4ae4-b748-c45e7cbe6b8a" absoluteBounds="5.015, 2.585, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

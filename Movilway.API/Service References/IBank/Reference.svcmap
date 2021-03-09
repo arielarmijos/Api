@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="cc1fce3d-6592-4683-912d-9f2a7a4e8c0e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:38838/Proinco.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Proinco.xsd" MetadataType="Schema" ID="c114938e-bcfa-46dc-ac63-1c2b6cae3717" SourceId="1" SourceUrl="http://localhost:38838/Proinco.svc?xsd=xsd2" />
+    <MetadataFile FileName="Proinco.wsdl" MetadataType="Wsdl" ID="afd04996-aeb7-4f34-9ec5-daf0c9b77ac7" SourceId="1" SourceUrl="http://localhost:38838/Proinco.svc?wsdl" />
+    <MetadataFile FileName="Proinco.disco" MetadataType="Disco" ID="980597f3-e8ba-4548-a7f8-fc28badbb655" SourceId="1" SourceUrl="http://localhost:38838/Proinco.svc?disco" />
+    <MetadataFile FileName="Proinco1.xsd" MetadataType="Schema" ID="2a05ddab-4e49-4426-b45f-f30459ae2f00" SourceId="1" SourceUrl="http://localhost:38838/Proinco.svc?xsd=xsd0" />
+    <MetadataFile FileName="Proinco2.xsd" MetadataType="Schema" ID="4ed4244b-b74a-446a-b1e4-acd468d4319f" SourceId="1" SourceUrl="http://localhost:38838/Proinco.svc?xsd=xsd1" />
+    <MetadataFile FileName="Proinco1.wsdl" MetadataType="Wsdl" ID="f570e6ef-40cb-4aa2-b0f7-570b8df79d46" SourceId="1" SourceUrl="http://localhost:38838/Proinco.svc?wsdl=wsdl0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

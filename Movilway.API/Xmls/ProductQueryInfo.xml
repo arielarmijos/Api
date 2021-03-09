@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<Products>
+  <Product id="20" >
+    <Url>http://172.16.183.220:8089/Gmoney/Service.svc</Url>
+    <Timeout>60000</Timeout>
+  </Product>
+</Products>

@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Movilway.API.Service.Management.Management" CodeBehind="Management.svc.cs" %>

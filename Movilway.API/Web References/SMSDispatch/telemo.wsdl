@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.namespace.com/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://www.namespace.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.namespace.com/">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="sms_to_customerRequest">
+    <wsdl:part name="client_id" type="xsd:string" />
+    <wsdl:part name="customer_id" type="xsd:string" />
+    <wsdl:part name="mobile" type="xsd:string" />
+    <wsdl:part name="message" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="sms_to_customerResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="sendRequest">
+    <wsdl:part name="client_id" type="xsd:string" />
+    <wsdl:part name="mobile" type="xsd:string" />
+    <wsdl:part name="message" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="sendResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:portType name="Dispatch SMS web  servicePortType">
+    <wsdl:operation name="sms_to_customer">
+      <documentation>Dispatch a SMS immediately and assigned to CUSTOMER_ID (Stats)</documentation>
+      <wsdl:input message="tns:sms_to_customerRequest" />
+      <wsdl:output message="tns:sms_to_customerResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="send">
+      <documentation>Dispatchs a new message immediately</documentation>
+      <wsdl:input message="tns:sendRequest" />
+      <wsdl:output message="tns:sendResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Dispatch SMS web  serviceBinding" type="tns:Dispatch SMS web  servicePortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="sms_to_customer">
+      <soap:operation soapAction="urn:smssimplewsdl#sms_to_customer" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://www.namespace.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://www.namespace.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="send">
+      <soap:operation soapAction="urn:smssimplewsdl#send" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://www.namespace.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://www.namespace.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Dispatch SMS web  service">
+    <wsdl:port name="Dispatch SMS web  servicePort" binding="tns:Dispatch SMS web  serviceBinding">
+      <soap:address location="http://telemo.com.ve/ws/sms/server.php" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

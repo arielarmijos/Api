@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="https://www.enlineapagos.com/secure/webservices" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="https://www.enlineapagos.com/secure/webservices" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="https://www.enlineapagos.com/secure/webservices">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="Listar_BancosRequest">
+    <wsdl:part name="usuario" type="xsd:string" />
+    <wsdl:part name="clave" type="xsd:string" />
+    <wsdl:part name="llavemd5" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="Listar_BancosResponse">
+    <wsdl:part name="respuesta" type="xsd:string" />
+    <wsdl:part name="errorsms" type="xsd:string" />
+    <wsdl:part name="listabancos" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="Iniciar_PagoRequest">
+    <wsdl:part name="usuario" type="xsd:string" />
+    <wsdl:part name="clave" type="xsd:string" />
+    <wsdl:part name="llavemd5" type="xsd:string" />
+    <wsdl:part name="referencia" type="xsd:string" />
+    <wsdl:part name="total_con_iva" type="xsd:string" />
+    <wsdl:part name="valor_iva" type="xsd:string" />
+    <wsdl:part name="descripcion_pago" type="xsd:string" />
+    <wsdl:part name="email" type="xsd:string" />
+    <wsdl:part name="Id_cliente" type="xsd:string" />
+    <wsdl:part name="nombre_cliente" type="xsd:string" />
+    <wsdl:part name="apellido_cliente" type="xsd:string" />
+    <wsdl:part name="telefono_cliente" type="xsd:string" />
+    <wsdl:part name="direccion" type="xsd:string" />
+    <wsdl:part name="pais" type="xsd:string" />
+    <wsdl:part name="ciudad" type="xsd:string" />
+    <wsdl:part name="ip" type="xsd:string" />
+    <wsdl:part name="firma" type="xsd:string" />
+    <wsdl:part name="info_opcional1" type="xsd:string" />
+    <wsdl:part name="info_opcional2" type="xsd:string" />
+    <wsdl:part name="info_opcional3" type="xsd:string" />
+    <wsdl:part name="lista_codigos_servicio_multicredito" type="xsd:string" />
+    <wsdl:part name="lista_nit_codigos_servicio_multicredito" type="xsd:string" />
+    <wsdl:part name="lista_valores_con_iva" type="xsd:string" />
+    <wsdl:part name="lista_valores_iva" type="xsd:string" />
+    <wsdl:part name="total_codigos_servicio" type="xsd:string" />
+    <wsdl:part name="fotografiaurl" type="xsd:string" />
+    <wsdl:part name="grabacionurl" type="xsd:string" />
+    <wsdl:part name="llamadaconfirmacionnumero" type="xsd:string" />
+    <wsdl:part name="facebook" type="xsd:string" />
+    <wsdl:part name="urlretorno" type="xsd:string" />
+    <wsdl:part name="CodigoDelBanco" type="xsd:string" />
+    <wsdl:part name="TipoDeUsuario" type="xsd:string" />
+    <wsdl:part name="latitud" type="xsd:string" />
+    <wsdl:part name="longitud" type="xsd:string" />
+    <wsdl:part name="exactitud" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="Iniciar_PagoResponse">
+    <wsdl:part name="respuesta" type="xsd:string" />
+    <wsdl:part name="errorsms" type="xsd:string" />
+    <wsdl:part name="url" type="xsd:string" />
+    <wsdl:part name="numerotransaccion" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="Confirma_Respuesta_PagoRequest">
+    <wsdl:part name="usuario" type="xsd:string" />
+    <wsdl:part name="clave" type="xsd:string" />
+    <wsdl:part name="llavemd5" type="xsd:string" />
+    <wsdl:part name="numerotransaccion" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="Confirma_Respuesta_PagoResponse">
+    <wsdl:part name="respuesta" type="xsd:string" />
+    <wsdl:part name="errorsms" type="xsd:string" />
+    <wsdl:part name="int_estado_pago" type="xsd:string" />
+    <wsdl:part name="str_nombre_banco" type="xsd:string" />
+    <wsdl:part name="str_codigo_transaccion" type="xsd:string" />
+    <wsdl:part name="int_ciclo_transaccion" type="xsd:string" />
+    <wsdl:part name="dat_fecha" type="xsd:string" />
+    <wsdl:part name="fechatransaccion" type="xsd:string" />
+    <wsdl:part name="horatransaccion" type="xsd:string" />
+    <wsdl:part name="descripcion_pago" type="xsd:string" />
+    <wsdl:part name="email" type="xsd:string" />
+    <wsdl:part name="nombre_cliente" type="xsd:string" />
+    <wsdl:part name="apellido_cliente" type="xsd:string" />
+    <wsdl:part name="telefono_cliente" type="xsd:string" />
+    <wsdl:part name="direccion" type="xsd:string" />
+    <wsdl:part name="pais" type="xsd:string" />
+    <wsdl:part name="ciudad" type="xsd:string" />
+    <wsdl:part name="info_opcional1" type="xsd:string" />
+    <wsdl:part name="info_opcional2" type="xsd:string" />
+    <wsdl:part name="info_opcional3" type="xsd:string" />
+    <wsdl:part name="firma" type="xsd:string" />
+    <wsdl:part name="ip" type="xsd:string" />
+    <wsdl:part name="total_con_iva" type="xsd:string" />
+    <wsdl:part name="valor_iva" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:portType name="PSEPortType">
+    <wsdl:operation name="Listar_Bancos">
+      <documentation>Obtiene la Lista de Bancos Disponibles en PSE</documentation>
+      <wsdl:input message="tns:Listar_BancosRequest" />
+      <wsdl:output message="tns:Listar_BancosResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="Iniciar_Pago">
+      <documentation>Inicia una transaccion en PSE</documentation>
+      <wsdl:input message="tns:Iniciar_PagoRequest" />
+      <wsdl:output message="tns:Iniciar_PagoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="Confirma_Respuesta_Pago">
+      <documentation>Confirma la respuesta de una transaccion en PSE</documentation>
+      <wsdl:input message="tns:Confirma_Respuesta_PagoRequest" />
+      <wsdl:output message="tns:Confirma_Respuesta_PagoResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PSEBinding" type="tns:PSEPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="Listar_Bancos">
+      <soap:operation soapAction="https://www.enlineapagos.com/secure/webservices/WS_PSE.do/Listar_Bancos" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://www.enlineapagos.com/secure/webservices" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://www.enlineapagos.com/secure/webservices" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Iniciar_Pago">
+      <soap:operation soapAction="https://www.enlineapagos.com/secure/webservices/WS_PSE.do/Iniciar_Pago" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://www.enlineapagos.com/secure/webservices" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://www.enlineapagos.com/secure/webservices" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Confirma_Respuesta_Pago">
+      <soap:operation soapAction="https://www.enlineapagos.com/secure/webservices/WS_PSE.do/Confirma_Respuesta_Pago" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://www.enlineapagos.com/secure/webservices" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://www.enlineapagos.com/secure/webservices" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PSE">
+    <wsdl:port name="PSEPort" binding="tns:PSEBinding">
+      <soap:address location="https://www.enlineapagos.com:443/secure/webservices/WS_PSE.do" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://scioglobalgroup.com/webservices/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:i0="http://tempuri.org/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServiceQuery" targetNamespace="http://scioglobalgroup.com/webservices/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import namespace="http://tempuri.org/" location="http://localhost:8002/PeruGmoney/Service.svc?wsdl=wsdl0" />
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://scioglobalgroup.com/webservices/Imports">
+      <xsd:import schemaLocation="http://localhost:8002/PeruGmoney/Service.svc?xsd=xsd0" namespace="http://scioglobalgroup.com/webservices/" />
+      <xsd:import schemaLocation="http://localhost:8002/PeruGmoney/Service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8002/PeruGmoney/Service.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:8002/PeruGmoney/Service.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Movilway.IProtocolWCF.Contract.Data" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="webservices_Reload_InputMessage">
+    <wsdl:part name="parameters" element="tns:Reload" />
+  </wsdl:message>
+  <wsdl:message name="webservices_Reload_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReloadResponse" />
+  </wsdl:message>
+  <wsdl:message name="webservices_Revert_InputMessage">
+    <wsdl:part name="parameters" element="tns:Revert" />
+  </wsdl:message>
+  <wsdl:message name="webservices_Revert_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RevertResponse" />
+  </wsdl:message>
+  <wsdl:message name="webservices_GetVersion_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVersion" />
+  </wsdl:message>
+  <wsdl:message name="webservices_GetVersion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="queries_Query_InputMessage">
+    <wsdl:part name="parameters" element="tns:Query" />
+  </wsdl:message>
+  <wsdl:message name="queries_Query_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryResponse" />
+  </wsdl:message>
+  <wsdl:portType name="webservices">
+    <wsdl:operation name="Reload">
+      <wsdl:input wsaw:Action="http://scioglobalgroup.com/webservices/Reload" message="tns:webservices_Reload_InputMessage" />
+      <wsdl:output wsaw:Action="http://scioglobalgroup.com/webservices/webservices/ReloadResponse" message="tns:webservices_Reload_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Revert">
+      <wsdl:input wsaw:Action="http://scioglobalgroup.com/webservices/Revert" message="tns:webservices_Revert_InputMessage" />
+      <wsdl:output wsaw:Action="http://scioglobalgroup.com/webservices/webservices/RevertResponse" message="tns:webservices_Revert_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVersion">
+      <wsdl:input wsaw:Action="http://scioglobalgroup.com/webservices/GetVersion" message="tns:webservices_GetVersion_InputMessage" />
+      <wsdl:output wsaw:Action="http://scioglobalgroup.com/webservices/webservices/GetVersionResponse" message="tns:webservices_GetVersion_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="queries">
+    <wsdl:operation name="Query">
+      <wsdl:input wsaw:Action="http://scioglobalgroup.com/webservices/Query" message="tns:queries_Query_InputMessage" />
+      <wsdl:output wsaw:Action="http://scioglobalgroup.com/webservices/queries/QueryResponse" message="tns:queries_Query_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:service name="ServiceQuery">
+    <wsdl:port name="BasicHttpBinding_webservices" binding="i0:BasicHttpBinding_webservices">
+      <soap:address location="http://localhost:8002/PeruGmoney/Service.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_queries" binding="i0:BasicHttpBinding_queries">
+      <soap:address location="http://localhost:8002/PeruGmoney/Service.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

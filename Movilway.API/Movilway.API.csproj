@@ -1,0 +1,2321 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x64</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C3C99ECA-F139-4FFE-9D7B-17DFF0E5D39C}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Movilway.API</RootNamespace>
+    <AssemblyName>Movilway.API</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <PlatformTarget>x64</PlatformTarget>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <TargetFrameworkProfile />
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PrecompileBeforePublish>false</PrecompileBeforePublish>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\CommonLibrary\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.DataAccess, Version=4.112.3.0, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\packages\odp.net.x64.112.3.0\lib\net40\Oracle.DataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Cache\Cache.cs" />
+    <Compile Include="Cache\ICache.cs" />
+    <Compile Include="Core\ApiConfiguration.cs" />
+    <Compile Include="Core\ApiException.cs" />
+    <Compile Include="Core\Reflection.cs" />
+    <Compile Include="Core\Security\Multipay472TripleDes.cs" />
+    <Compile Include="Core\Security\Cryptography.cs" />
+    <Compile Include="Core\Security\SecurityException.cs" />
+    <Compile Include="Core\Constants.cs" />
+    <Compile Include="Core\ExtensionMethods.cs" />
+    <Compile Include="Core\GenericApiResult.cs" />
+    <Compile Include="Core\IPAddressExtensions.cs" />
+    <Compile Include="Core\NetWorkTools.cs" />
+    <Compile Include="Data\MacroProduct\AccessType.cs">
+      <DependentUpon>MacroProductDbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MacroProduct\AmountType.cs">
+      <DependentUpon>MacroProductDbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MacroProduct\BalanceType.cs">
+      <DependentUpon>MacroProductDbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MacroProduct\Category.cs">
+      <DependentUpon>MacroProductDbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MacroProduct\FavoriteAmounts.cs">
+      <DependentUpon>MacroProductDbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MacroProduct\FieldType.cs">
+      <DependentUpon>MacroProductDbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MacroProduct\MacroProduct.cs">
+      <DependentUpon>MacroProductDbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MacroProduct\MacroProductBranch.cs">
+      <DependentUpon>MacroProductDbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MacroProduct\MacroProductChannel.cs">
+      <DependentUpon>MacroProductDbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MacroProduct\MacroProductDataManager.cs" />
+    <Compile Include="Data\MacroProduct\MacroProductDbModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MacroProductDbModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MacroProduct\MacroProductDbModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MacroProductDbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MacroProduct\MacroProductDbModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MacroProductDbModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MacroProduct\MacroProductField.cs">
+      <DependentUpon>MacroProductDbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MacroProduct\MacroProductInterDataManager.cs" />
+    <Compile Include="Data\MacroProduct\MacroProductValue.cs">
+      <DependentUpon>MacroProductDbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MacroProduct\SubCategory.cs">
+      <DependentUpon>MacroProductDbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Notiway\Access.cs">
+      <DependentUpon>Notiway.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Notiway\AccessType.cs">
+      <DependentUpon>Notiway.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Notiway\AuditMessage.cs">
+      <DependentUpon>Notiway.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Notiway\AuditMessageEntry.cs">
+      <DependentUpon>Notiway.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Notiway\AuditMessageScheduleEntry.cs">
+      <DependentUpon>Notiway.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Notiway\AuditMessageTicket.cs">
+      <DependentUpon>Notiway.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Notiway\AuditMessageTicketEntry.cs">
+      <DependentUpon>Notiway.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Notiway\AuditMessageTicketScheduleEntry.cs">
+      <DependentUpon>Notiway.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Notiway\Branch.cs">
+      <DependentUpon>Notiway.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Notiway\BranchProduct.cs">
+      <DependentUpon>Notiway.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Notiway\City.cs">
+      <DependentUpon>Notiway.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Notiway\Country.cs">
+      <DependentUpon>Notiway.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Notiway\Message.cs">
+      <DependentUpon>Notiway.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Notiway\MessageSchedule.cs">
+      <DependentUpon>Notiway.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Notiway\MessageTicket.cs">
+      <DependentUpon>Notiway.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Notiway\MessageTicketSchedule.cs">
+      <DependentUpon>Notiway.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Notiway\MessageType.cs">
+      <DependentUpon>Notiway.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Notiway\Notiway.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Notiway.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Notiway\Notiway.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Notiway.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Notiway\Notiway.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Notiway.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Notiway\Platform.cs">
+      <DependentUpon>Notiway.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Notiway\Product.cs">
+      <DependentUpon>Notiway.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Notiway\Provider.cs">
+      <DependentUpon>Notiway.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Notiway\Province.cs">
+      <DependentUpon>Notiway.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Notiway\Status.cs">
+      <DependentUpon>Notiway.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Notiway\User.cs">
+      <DependentUpon>Notiway.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\MultiPay472\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\PSE_WS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\QueryPaymentReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SmsApi\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\TDC_WS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service\ExtendedApi\Cash472\Cash472Api.svc.cs">
+      <DependentUpon>Cash472Api.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Service\ExtendedApi\Cash472\ICash472ApiRest.cs" />
+    <Compile Include="Service\ExtendedApi\Cash472\ICash472ApiSoap.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\AddTrustedDeviceRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\AddTrustedDeviceResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Cash472\Factura.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Cash472\NotificacionOficialCumplimientoResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Cash472\NotificacionOficialCumplimientoRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Cash472\GenerarFacturaRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Cash472\GenerarFacturaResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\DebitNoteResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\DebitNoteRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetAuditoryUsersReportResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetAuditoryUsersReportRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetBlockedAgenciesByInactivityReportRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetBlockedAgenciesByInactivityReportResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetCutsRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetCutsResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetCutStokcRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetDailyCutReportRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetCutStokcResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetDailyCutReportResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetDistributionsMadeByUserResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetDistributionsMadeByUserRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetNewAgentsReportResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetNewAgentsReportRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetAgentClosingsResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetAgentClosingsRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetAgentDistributionsRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetAgentDistributionsResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\MonthlyReportRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\MonthlyReportResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\SetAgentCloseResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\SetAgentCloseRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetAgentClosingDetailsRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetAgentClosingDetailsResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetLoanTokenResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetLoanTokenRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Macro\GetMacroProductListByCategoryLightResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Macro\GetMacroProductDetailsRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Macro\GetMacroProductDetailsResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Payment\ActualizarTransaccionRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Payment\ActualizarTransaccionResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Payment\Bank.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Payment\ConfirmaRespuestaPagoRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Payment\ConfirmaRespuestaPagoResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Payment\CrearTransaccionRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Payment\CrearTransaccionResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Payment\GetBankListRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Payment\GetBanklistResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Payment\GetPSEBankRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Payment\GetPSEBankResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Payment\IniciarPagoRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Payment\IniciarPagoResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Payment\TransactionBase.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\QueryPaymentRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\QueryPaymentResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\TransferCommissionRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\TransferCommissionResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\UpdateContactInfoAgentResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\UpdateContactInfoAgentRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\CreditNoteResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\CreditNoteRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Cash472\Cliente.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Cash472\ConsultaClienteRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Cash472\ConsultaCiudadesRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Cash472\ConsultaCiudadesResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Cash472\ConsultaRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Cash472\ConsultaClienteResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Cash472\ConsultaResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Cash472\ActualizarClienteRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Cash472\ActualizarClienteResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Cash472\Ciudad.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Cash472\Giro.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Cash472\NuevoClienteResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Cash472\NuevoClienteRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Cash472\EmitirResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Cash472\EmitirRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Cash472\CotizarRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Cash472\CotizarResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Cash472\ReversoPagoResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Cash472\ReversoPagoRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Cash472\PagoRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Cash472\PagoResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Cash472\EstadoGiro.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Cash472\TipoTransaccion.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Cash472\TipoCliente.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Cash472\TipoIdentificacion.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\ChangePasswodRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\ChangePasswordResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Common\AGenericPlatformAuthentication.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Common\EnumExtensions.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Common\ErrorMessagesDescription.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Common\ErrorMessagesMnemonics.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\AgentDistributionInfo.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\DeleteTrustedDeviceRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\DeleteTrustedDeviceResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetAgentRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetAgentResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetBankListAppRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetBankListAppResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetChildListByIdRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetDistributionsMadeByAgentRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetDistributionsMadeByAgentResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetLatestAccessRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetLatestAccessResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetPurchasesSummaryDashBoardRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetSalesSummaryDashBoardRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetPurchasesSummaryDashBoardResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetSalesSummaryReportRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetSalesSummaryDashBoardResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetTransactionsReportRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetTransactionsReportResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetTrustedDevicesRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetTrustedDevicesResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetUsersAgentRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetUsersAgentResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetValuesRequestBody.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetTypeAccessResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\LoginAvaiableRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\LoginAvaiableResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Macro\GetFavoriteAmountsResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Macro\GetFavoriteAmountsRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\PinUsersRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\PinUsersResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\SecurityRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\SecurityResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\SetStateTrustedDeviceRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\SetStateTrustedDeviceResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\SetUserStatusRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\SetUserStatusResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\SOSIT\ListSolicitudesResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\SOSIT\ListSolicitudesRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\SOSIT\Solicitude.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\SOSIT\ListNotificationsResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\SOSIT\Notification.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\SOSIT\Conversation.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\SOSIT\ListNotificationsRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\SOSIT\ListConversationsResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\SOSIT\ListConversationsRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\SOSIT\GetNotificationResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\SOSIT\GetNotificacionRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\SOSIT\GetConversationRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\SOSIT\GetConversationResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\SOSIT\GetSolicitudeResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\SOSIT\GetSolicitudeRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\SOSIT\AddSolicitudeResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\SOSIT\AddSolicitudeRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\SOSIT\EnumPriority.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\SOSIT\EnumServiceCategory.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\SOSIT\EnumStatusSolicitude.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\SOSIT\TypeSolicitude.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\SummaryType.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetParametersRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetParametersResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\CreateAgentRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\CreateAgentResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\InformPaymentRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\InformPaymentResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetPendingDistributionsRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetPendingDistributionsResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\ProcessDistributionRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\ProcessDistributionResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetLastDistributionsRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetLastDistributionsResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Rol.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetRolesRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetRolesResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetAgentDistributionListRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetAgentDistributionListResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetScoreRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetScoreResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\LoginDataCache.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\MacroInternational\GetMacroProductInternationalRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\MacroInternational\GetMacroProductInternationalResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Macro\GetMacroProductListRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Macro\GetMacroProductListByCategoryResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Macro\GetMacroProductListResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\NotiwayRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Service\ExtendedApi\DataContract\NotiwayResponse.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Service\ExtendedApi\DataContract\Notiway\GetNotiwayNewsListRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Notiway\GetNotiwayNewsListResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Notiway\NotiwayNews.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Notiway\NotiwayNewsReadNotificationRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\RegenerateMoviPinRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\RegenerateMoviPinResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\ChangeBranchStatusRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\ChangeBranchStatusResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\TipoAcceso.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Cash472\TipoPos.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Utils.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\ValidateDeviceRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\ValidateDeviceResponse.cs" />
+    <Compile Include="Service\ExtendedApi\Macro\IMacroProductApiRest.cs" />
+    <Compile Include="Service\ExtendedApi\Macro\MacroMessageInspector.cs" />
+    <Compile Include="Service\ExtendedApi\Notiway\INotiwayApiSoap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Service\ExtendedApi\Notiway\INotiwayApiRest.cs" />
+    <Compile Include="Service\ExtendedApi\Notiway\NotiwayApi.svc.cs">
+      <DependentUpon>NotiwayApi.svc</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Service\ExtendedApi\Payment\IPaymentApi.cs" />
+    <Compile Include="Service\ExtendedApi\Payment\PaymentApi.svc.cs">
+      <DependentUpon>PaymentApi.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Service\ExtendedApi\Provider\Cash472\CashProvider.cs">
+      <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Service\ExtendedApi\Provider\Cash472\DwhModel\Ciudad.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Cash472\DwhModel\Agencia.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Cash472\DwhModel\DetalleGiro.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Cash472\DwhModel\Factura.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Cash472\DwhModel\GiroUltimaTransaccion.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Cash472\DwhModel\Pago.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Cash472\DwhModel\Giro.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Cash472\DwhModel\Cliente.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Cash472\Implementation\ActualizarCliente.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Cash472\Implementation\Emitir.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Cash472\Implementation\Ciudad.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Cash472\Implementation\GenerarFactura.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Cash472\Implementation\NotificacionOficialCumplimiento.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Cash472\Implementation\Pago472.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Cash472\Implementation\ReversoPago.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Cash472\Implementation\Pago.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Cash472\Implementation\NuevoCliente.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Cash472\Implementation\ConsultaCliente.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Cash472\Implementation\Consulta.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Cash472\Implementation\Emitir472.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Cash472\Implementation\Cotizar.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Cash472\Queries\Cash.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Cash472\Queries\Kinacu.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\DebitNoteProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\CreditNoteProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\ChangePasswordProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\GetAuditoryUsersReport.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\GetBlockedAgenciesByInactivityReport.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\GetCutsProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\GetCutStockProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\GetDailyCutReportProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\GetDistributionsMadeByUserProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\GetNewAgentsReportProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\GetAgentClosingsProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\GetAgentDistributionsProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\MonthlyReportProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\SetAgentCloseProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\GetAgentClosingDetailsProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\GetLoanTokenProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\GetDistributionsMadeByAgentProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\GetPinUsersProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\IBank\Utils.cs" />
+    <Compile Include="Service\ExtendedApi\Macro\IMacroProductApiSoap.cs" />
+    <Compile Include="Service\ExtendedApi\Macro\MacroProductApi.svc.cs">
+      <DependentUpon>MacroProductApi.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Service\ExtendedApi\Provider\ISecureServiceProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\AddTrustedDeviceProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\AKinacuProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\BuyStockProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\ChangePinProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\ChangeBranchStatusProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\DeleteTrustedDevice.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\GetAgentProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\GetBankListAppProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\GetChildListByIdProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\GetLatestAccessProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\GetPurchasesSummaryDashBoardProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\GetSalesSummaryDashBoardProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\GetTrustedDevices.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\GetParametersProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\CreateAgentProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\GetSalesSummaryReportProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\GetTransactionsReportProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\GetUsersAgentProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\InformPaymentProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\LoginAvailableProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\ProcessDistributionProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\GetPendingDistributionsProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\GetLastDistributionsProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\GetRolesProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\GetAgentDistributionListProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\GetScoreProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\ExternalTransferProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\GetAgentGroupsProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\GetAgentInfoProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\GetBalanceProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\GetBankListProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\GetChildListProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\GetLastTransactionsProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\GetParentListProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\GetProductListProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\GetSalesSummaryProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\GetSessionProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\GetTransactionProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\NotiwayProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\QueryPaymentProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\SecurityProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\SetEstateTrustedDevice.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\SetUserStatusProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\TopUpProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\TransferCommissionProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\TransferProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\TypeAccessProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\UpdateContactInfoAgentProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\UpdateAgentProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\Utils.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\ValidateDepositProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Kinacu\ValidateDeviceProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Macro\MacroProductInternationalProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Notiway\NotiwayProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Service\ExtendedApi\Provider\Notiway\NotiwayQuerySelectItem.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Payment\Implementation\ActualizarTransaccion.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Payment\Implementation\Bancos.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Payment\Implementation\ConfirmarPago.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Payment\Implementation\CrearTransaccion.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Payment\Implementation\IniciarPago.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Payment\Implementation\ObtenerBancoPSE.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Payment\Model\TipoTransaccion.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Payment\Model\TransaccionEstado.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Payment\Model\TransactionDB.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Payment\Model\Transaction_DB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Transaction_DB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Service\ExtendedApi\Provider\Payment\Model\Transaction_DB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Transaction_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Service\ExtendedApi\Provider\Payment\Model\Transaction_DB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Transaction_DB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Service\ExtendedApi\Provider\Payment\PaymentProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Payment\SoapRequest.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\SOSIT\Implementation\ListConversations.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\SOSIT\Implementation\GetSolicitude.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\SOSIT\Implementation\AddSolicitude.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\SOSIT\Implementation\ListSolicitudesByAgent.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\SOSIT\OperationRequest\OperationRequestBase.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\SOSIT\OperationRequest\Operations\GetConversationOperation.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\SOSIT\OperationRequest\Operations\GetNotificationOperation.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\SOSIT\OperationRequest\Operations\ListSolicitudesOperation.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\SOSIT\OperationRequest\Operations\ListNotificationsOperation.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\SOSIT\OperationRequest\Operations\ListConversationsOperation.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\SOSIT\OperationRequest\Operations\AddSolicitudeOperation.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\SOSIT\OperationRequest\Operations\GetSolicitudeOperation.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\SOSIT\OperationRequest\Request.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\SOSIT\SolicitudeProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\SOSIT\UtilsSOSIT.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Utiba\RegenerateMoviPinProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Security\SecureAccessValidator.cs" />
+    <Compile Include="Service\ExtendedApi\SOSIT\ISOSITApiSoap.cs" />
+    <Compile Include="Service\ExtendedApi\SOSIT\SOSITApi.svc.cs">
+      <DependentUpon>SOSITApi.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\ApiTicket.cs" />
+    <Compile Include="Utils\CustomTextMessageEncoder\CustomBinding01.cs" />
+    <Compile Include="Utils\CustomTextMessageEncoder\CustomTextMessageBindingElement.cs" />
+    <Compile Include="Utils\CustomTextMessageEncoder\CustomTextMessageEncoder.cs" />
+    <Compile Include="Utils\CustomTextMessageEncoder\CustomTextMessageEncoderFactory.cs" />
+    <Compile Include="Utils\Database.cs" />
+    <Compile Include="Utils\Dwh.cs" />
+    <Compile Include="Utils\HttpUtils.cs" />
+    <Compile Include="Utils\KinacuDb.cs" />
+    <Compile Include="Utils\Mailer.cs">
+      <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Utils\Models\Kinacu\InfoAgente.cs" />
+    <Compile Include="Utils\Models\Kinacu\InfoCuentaCorriente.cs" />
+    <Compile Include="Utils\Models\Kinacu\InfoDeposito.cs" />
+    <Compile Include="Utils\PrinterUtils.cs" />
+    <Compile Include="Utils\Queries\Kinacu.cs" />
+    <Compile Include="Utils\SMSTelemoDispatcher.cs" />
+    <Compile Include="Utils\Web\Request.cs" />
+    <Compile Include="Web References\KinacuLogisticsWebService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\KinacuManagementWebService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\KinacuWebService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\PSE\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\SMSDispatch\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Content Include="Service References\PSE_WS\Movilway.API.PSE_WS.Confirma_Respuesta_PagoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PSE_WS\Movilway.API.PSE_WS.Iniciar_PagoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PSE_WS\Movilway.API.PSE_WS.Listar_BancosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Properties\PublishProfiles\RoN.pubxml" />
+    <None Include="Service References\PSE_WS\WS_PSE1.wsdl" />
+    <None Include="Service References\QueryPaymentReference\configuration91.svcinfo" />
+    <None Include="Service References\QueryPaymentReference\configuration.svcinfo" />
+    <None Include="Service References\PSE_WS\configuration91.svcinfo" />
+    <None Include="Service References\PSE_WS\configuration.svcinfo" />
+    <None Include="Service References\PSE_WS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Service References\QueryPaymentReference\Movilway.API.QueryPaymentReference.Output.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\QueryPaymentReference\Movilway.API.QueryPaymentReference.OutputQuery.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\QueryPaymentReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\TDC_WS\configuration91.svcinfo" />
+    <None Include="Service References\TDC_WS\configuration.svcinfo" />
+    <Content Include="Service References\TDC_WS\Movilway.API.TDC_WS.Confirmar_TransaccionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\TDC_WS\Movilway.API.TDC_WS.Email_De_CobroResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\TDC_WS\Movilway.API.TDC_WS.Link_De_CobroResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\TDC_WS\Movilway.API.TDC_WS.PasarelaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\TDC_WS\Movilway.API.TDC_WS.Procesar_TarjetaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\TDC_WS\Movilway.API.TDC_WS.Reversar_TransaccionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\TDC_WS\Movilway.API.TDC_WS.Verificar_Tarjeta_TipoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\TDC_WS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Service\ExtendedApi\Payment\PaymentApi.svc" />
+    <Content Include="Xmls\ProductQueryInfo.xml" />
+    <None Include="Config\ManagementAgentsSection.csd">
+      <Generator>CsdFileGenerator</Generator>
+      <LastGenOutput>ManagementAgentsSection.csd.cs</LastGenOutput>
+    </None>
+    <Content Include="Config\ManagementAgentsSection.csd.config">
+      <DependentUpon>ManagementAgentsSection.csd</DependentUpon>
+    </Content>
+    <None Include="Config\ManagementAgentsSection.csd.diagram">
+      <DependentUpon>ManagementAgentsSection.csd</DependentUpon>
+    </None>
+    <None Include="Config\ManagementAgentsSection.csd.xsd">
+      <DependentUpon>ManagementAgentsSection.csd</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="Data\MacroProduct\MacroProductDbModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MacroProductDbModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Data\MacroProduct\MacroProductDbModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MacroProductDbModel.edmx</DependentUpon>
+      <LastGenOutput>MacroProductDbModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Data\MacroProduct\MacroProductDbModel.edmx.diagram">
+      <DependentUpon>MacroProductDbModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Data\MacroProduct\MacroProductDbModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MacroProductDbModel.edmx</DependentUpon>
+      <LastGenOutput>MacroProductDbModel.cs</LastGenOutput>
+    </Content>
+    <None Include="Data\MovilBase.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>MovilBase.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="Data\Notiway\Notiway.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Notiway.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Data\Notiway\Notiway.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Notiway.edmx</DependentUpon>
+      <LastGenOutput>Notiway.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Data\Notiway\Notiway.edmx.diagram">
+      <DependentUpon>Notiway.edmx</DependentUpon>
+    </Content>
+    <Content Include="Data\Notiway\Notiway.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Notiway.edmx</DependentUpon>
+      <LastGenOutput>Notiway.cs</LastGenOutput>
+    </Content>
+    <None Include="Data\UtibaRegistration.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>UtibaRegistration.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\IBank\Movilway.API.IBank.GetBalanceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\IBank\Movilway.API.IBank.ProcessTransactionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Properties\PublishProfiles\localhost - publish.pubxml" />
+    <None Include="Properties\PublishProfiles\localhost dev.pubxml" />
+    <None Include="Service References\IBank\Proinco.disco" />
+    <None Include="Service References\IBank\configuration91.svcinfo" />
+    <None Include="Service References\IBank\configuration.svcinfo" />
+    <None Include="Service References\IBank\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Service References\MultiPay472\Movilway.API.MultiPay472.RespuestaAnulacionEmisionGiro.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MultiPay472\Movilway.API.MultiPay472.RespuestaCancelacionEmisionGiro.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MultiPay472\Movilway.API.MultiPay472.RespuestaConsultaGiro.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MultiPay472\Movilway.API.MultiPay472.RespuestaConsultaGiroReimpresion.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MultiPay472\Movilway.API.MultiPay472.RespuestaCotizadorGiro.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MultiPay472\Movilway.API.MultiPay472.RespuestaEmisionGiro.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MultiPay472\Movilway.API.MultiPay472.RespuestaPagoGiro.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MultiPay472\Movilway.API.MultiPay472.RespuestaReversoEmisionGiro.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\MultiPay472\Movilway.API.MultiPay472.RespuestaValidacionConstitucionGiro.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\MultiPay472\Service1.disco" />
+    <None Include="Service References\MultiPay472\configuration91.svcinfo" />
+    <None Include="Service References\MultiPay472\configuration.svcinfo" />
+    <None Include="Service References\MultiPay472\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\QueryPaymentReference\Service.wsdl" />
+    <None Include="Service References\QueryPaymentReference\Service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\QueryPaymentReference\Service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\QueryPaymentReference\Service2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\QueryPaymentReference\Service3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\QueryPaymentReference\ServiceQuery.wsdl" />
+    <None Include="Service References\SmsApi\configuration91.svcinfo" />
+    <None Include="Service References\SmsApi\configuration.svcinfo" />
+    <Content Include="Service References\SmsApi\Movilway.API.SmsApi.SendSmsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\SmsApi\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Service References\Utiba\configuration91.svcinfo" />
+    <Content Include="Service References\Utiba\configuration.svcinfo" />
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.accountPaymentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.accountPaymentResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.AccountResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.AccountsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.activateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.activateResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.actRuleInstanceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.actRuleInstanceResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.addCapDetailResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.addCapDetailResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.addCapSetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.addCapSetResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.addRuleEntityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.addRuleEntityResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.addRuleInstanceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.addRuleInstanceResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.addRuleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.addRuleResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.addScheduleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.addScheduleResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.adjustWalletResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.adjustWalletResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.AgentGroupsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.AgentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.authorise2Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.authorise2Response1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.authoriseResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.authoriseResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.balanceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.balanceResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.bankcashinResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.bankcashinResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.bankcashoutResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.bankcashoutResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.billcollectResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.billcollectResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.billpayResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.billpayResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.buyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.buyResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.buyStockResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.buyStockResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.CapSetsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.cashinResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.cashinResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.cashoutResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.cashoutResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.changeparentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.changeparentResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.confirmResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.confirmResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.coupontransferResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.coupontransferResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.createcouponResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.createcouponResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.createGroupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.createGroupResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.createsessionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.createsessionResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.createVoucherResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.createVoucherResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.deactivateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.deactivateResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.deactRuleInstanceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.deactRuleInstanceResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.delCapDetailResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.delCapDetailResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.delCapSetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.delCapSetResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.delchildResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.delchildResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.deleteGroupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.deleteGroupResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.deleteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.deleteResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.deleteScheduleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.deleteScheduleResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.deleteVoucherResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.deleteVoucherResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.delparentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.delparentResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.delRuleEntityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.delRuleEntityResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.delRuleInstanceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.delRuleInstanceResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.delRuleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.delRuleResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.delscheduleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.delscheduleResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.dispenseVoucherResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.dispenseVoucherResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.donateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.donateResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.finalizeExtTransResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.finalizeExtTransResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getAccountByReferenceIDAndTypeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getAccountByReferenceIDResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getAgentByReferenceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getAgentListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getAgentListResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getAllAgentGroupsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getAllCapDetailByCapsetIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getAllCapDetailByCapsetIdResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getAllCapDetailsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getAllCapDetailsResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getAllCapSetsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getAllGroupsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getAllGroupsResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getAllRulesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getAllRulesResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getBankListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getBankListResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getCapByIDResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getCapDetailByIDResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getCapDetailResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.GetCapResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getChildListByReferenceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getChildListByReferenceResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getGroupByNameResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getGroupByNameResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getGroupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getGroupResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getGroupsByTypeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getGroupsByTypeResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getParentListByReferenceIDResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getParentListByReferenceIDResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getProductListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getProductListResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getRuleEntitiesByParentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getRuleEntitiesByParentResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getRuleEntityListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getRuleEntityListResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getRuleEntityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getRuleEntityResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getRuleInstanceListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getRuleInstanceListResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getRuleInstanceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getRuleInstanceResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getRuleListByContextIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getRuleListByContextIdResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getRuleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getRuleResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getRuleTemplateListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getRuleTemplateListResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getRuleTemplateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getRuleTemplateResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getTransactionByIDResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getUserListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getUserListResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getVoucherResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.getVoucherResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.invokeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.invokeResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.joinchildResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.joinchildResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.joinparentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.joinparentResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.lastTransactionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.lastTransactionsResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.linkResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.linkResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.loginResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.loginResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.mapAgentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.mapAgentResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.mapRuleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.mapRuleResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.modCapDetailResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.modCapDetailResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.modCapSetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.modCapSetResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.modifyAccountResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.modifyAccountResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.modifyGroupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.modifyGroupResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.modifyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.modifyResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.modRuleEntityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.modRuleEntityResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.modRuleInstanceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.modRuleInstanceResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.modRuleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.modRuleResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.moveRuleEntityDownResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.moveRuleEntityDownResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.moveRuleEntityUpResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.moveRuleEntityUpResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.nextidResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.nextidResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.payStockResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.payStockResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.pinResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.pinResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.queryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.queryResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.queryTransactionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.queryTransactionResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.registerResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.registerResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.resetPinResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.resetPinResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.reverseResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.reverseResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.salesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.salesResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.sellResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.sellResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.sellStockResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.sellStockResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.stopResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.stopResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.topupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.topupResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.TransactionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.transferResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.transferResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.transferStockResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.transferStockResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.transqueryextResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.transqueryextResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.transqueryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.transqueryResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.unmapAgentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.unmapAgentResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.unmapRuleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Movilway.API.Utiba.unmapRuleResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Utiba\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Service\ExtendedApi\Cash472\Cash472Api.svc" />
+    <Content Include="Service\ExtendedApi\Macro\MacroProductApi.svc" />
+    <Content Include="Service\ExtendedApi\Notiway\NotiwayApi.svc" />
+    <Content Include="Service\ExtendedApi\SOSIT\SOSITApi.svc" />
+    <Content Include="Service\ExtendedApi\Trusted\TrustedExtendedApi.svc" />
+    <Content Include="Service\ExtendedApi\Private\PrivateExtendedAPI.svc" />
+    <Content Include="Service\ExtendedApi\Public\ExtendedApi.svc" />
+    <Content Include="Service\Management\Management.svc" />
+    <Content Include="Service\D2\D2.svc" />
+    <Content Include="Service\Registration\Registration.svc" />
+    <Content Include="Service\Sales\Sales.svc" />
+    <Content Include="Service\Stock\Stock.svc" />
+    <Content Include="Service\MoviPin\MoviPin.svc" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Compile Include="Config\ManagementAgentsSection.csd.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ManagementAgentsSection.csd</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MovilBase.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MovilBase.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\IBank\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\Utiba\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service\D2\External\GetTransactionsInRangeRequest.cs" />
+    <Compile Include="Service\D2\External\GetTransactionsInRangeResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\BasicAgentInfo.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\CashOutRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\CashOutResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Common\AUnsecuredApiRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Common\ASecuredFinancialApiRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Common\AFinancialApiResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Common\IMovilwayApiRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Common\IMovilwayApiResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\BlockAgentRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\BlockAgentResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\ConsolidateMoviPinRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\ConsolidateMoviPinResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\CompleteBuyStockRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\CompleteBuyStockResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\ProcessExternalTransactionRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\ProcessExternalTransactionResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetExternalBalanceRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetExternalBalanceResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\ValidateDepositRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\ValidateDepositResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetTodayMoviPaymentsRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetTodayMoviPaymentsResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\ValidateMoviPinRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\ValidateMoviPinResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\UnBlockAgentRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\UnBlockAgentResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\TransactionType.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\RequestStockRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\RequestStockResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\PayStockRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\PayStockResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\SellRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\SellResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetCityListRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetCityListResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetProvinceListResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetProvinceListRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\RegisterAgentBulkRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\RegisterAgentBulkResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\RegisterAgentRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\RegisterAgentResponse.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\IBank\ProcessExternalTransactionProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\IBank\GetExternalBalanceProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\IBank\AIBankProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Macro\MacroProductProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Utiba\AgentRegistrationUtils.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Utiba\CashOutProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Utiba\BlockAgentProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Utiba\ConsolidateMoviPinProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\BuiltIn\GetTodayMoviPaymentsProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Utiba\UnBlockAgentProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Utiba\RequestStockProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Utiba\PayStockProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Utiba\GetCityListProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Utiba\GetProvinceListProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Utiba\RegisterAgentBulkProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Utiba\RegisterAgentProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Utiba\SellProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Utiba\ValidateMoviPinProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Trusted\ITrustedExtendedApi.cs" />
+    <Compile Include="Service\ExtendedApi\Trusted\TrustedExtendedApi.svc.cs">
+      <DependentUpon>TrustedExtendedApi.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Service\ExtendedApi\DataContract\Common\ApiServiceName.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Common\IMovilwayApiRequestWrapper.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Common\IMovilwayApiResponseWrapper.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Common\ApiTargetPlatform.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Common\UtibaUtils.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\BuyStockRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\BuyStockResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\CashInRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\CashInResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\ChangePinRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\ChangePinResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\UnMapAgentToGroupRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\UnMapAgentToGroupResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\MapAgentToGroupRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\MapAgentToGroupResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetAgentGroupsRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetAgentGroupsResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetGroupListRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetGroupListResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetProductListRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetProductListResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetChildListRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetChildListResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetParentListRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetParentListResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetAgentInfoRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetAgentInfoResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetBankListRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetBankListResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\TransferRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\TransferResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetLastTransactionsRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetLastTransactionsResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\CreateMoviPinResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\CreateMoviPinRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\MoviPaymentRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\MoviPaymentResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetSalesSummaryRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetSalesSummaryResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\RegisterDebtPaymentRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\RegisterDebtPaymentResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetTransactionsInRangeRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetTransactionsInRangeResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\TransferStockRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\TransferStockResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetSessionRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetSessionResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetTransactionRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetTransactionRequestParameterType.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetTransactionResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\WalletType.cs" />
+    <Compile Include="Service\ExtendedApi\Private\PrivateExtendedAPI.svc.cs">
+      <DependentUpon>PrivateExtendedAPI.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Service\ExtendedApi\Private\IPrivateExtendedAPI.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\DWH\GetTransactionsInRangeProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\ServiceExecutionDelegator.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\ServiceProviderImplAttribute.cs" />
+    <None Include="Properties\PublishProfiles\API-MOVILWAY.pubxml" />
+    <Content Include="Service References\Utiba\UMarketSC.wsdl" />
+    <None Include="Service References\IBank\Proinco.wsdl" />
+    <Content Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </Content>
+    <None Include="Service References\IBank\Proinco.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\IBank\Proinco1.wsdl" />
+    <None Include="Service References\IBank\Proinco1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\IBank\Proinco2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MultiPay472\Service1.wsdl" />
+    <None Include="Service References\SmsApi\SmsApi.wsdl" />
+    <None Include="Service References\SmsApi\SmsApi.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SmsApi\SmsApi1.wsdl" />
+    <None Include="Service References\TDC_WS\ProcesarTarjetaCredito.wsdl" />
+    <None Include="Service References\Utiba\umarketsc.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Utiba\umarketsc1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Utiba\umarketsc2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Web References\KinacuWebService\BankAccount.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\KinacuWebService\PrivilegeInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\KinacuWebService\Product.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\KinacuWebService\Provider.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\KinacuWebService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Web References\KinacuWebService\SaleData.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\KinacuWebService\Retailer.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\KinacuWebService\SaleInterface.wsdl" />
+    <Content Include="Web References\KinacuLogisticsWebService\LogisticsInterface.wsdl" />
+    <Content Include="Web References\KinacuLogisticsWebService\PrivilegeInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\KinacuLogisticsWebService\Product.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\KinacuLogisticsWebService\ProductRequest.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\KinacuLogisticsWebService\Provider.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\KinacuLogisticsWebService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\KinacuLogisticsWebService\Retailer.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Service\ExtendedApi\Provider\Payment\Model\Transaction_DB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Transaction_DB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Service\ExtendedApi\Provider\Payment\Model\Transaction_DB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Transaction_DB.edmx</DependentUpon>
+      <LastGenOutput>Transaction_DB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Service\ExtendedApi\Provider\Payment\Model\Transaction_DB.edmx.diagram">
+      <DependentUpon>Transaction_DB.edmx</DependentUpon>
+    </Content>
+    <Content Include="Service\ExtendedApi\Provider\Payment\Model\Transaction_DB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Transaction_DB.edmx</DependentUpon>
+      <LastGenOutput>Transaction_DB.cs</LastGenOutput>
+    </Content>
+    <None Include="Web References\KinacuManagementWebService\ManagementInterface.wsdl" />
+    <Content Include="Web References\KinacuManagementWebService\PrivilegeInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\KinacuManagementWebService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Web References\SMSDispatch\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <None Include="Web References\PSE\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\PSE\WS_PSE.wsdl" />
+    <None Include="Web References\SMSDispatch\telemo.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\AMethodProcessor.cs" />
+    <Compile Include="Log\ILoggableExecutor.cs" />
+    <Compile Include="Log\LogActionAttribute.cs" />
+    <Compile Include="Data\UtibaRegistration.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UtibaRegistration.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Log\LogUtils.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\ApiRequestInternal.cs" />
+    <Compile Include="Service\ApiServiceBase.cs" />
+    <Compile Include="Service\ApiResponseInternal.cs" />
+    <Compile Include="Service\BalanceProvider.cs" />
+    <Compile Include="Service\D2\External\AccountPaymentExtendedRequest.cs" />
+    <Compile Include="Service\D2\External\AccountPaymentExtendedResponse.cs" />
+    <Compile Include="Service\D2\External\BalanceExtendedRequest.cs" />
+    <Compile Include="Service\D2\External\BalanceExtendedResponse.cs" />
+    <Compile Include="Service\D2\External\BankInfo.cs" />
+    <Compile Include="Service\D2\External\BuyExtendedRequest.cs" />
+    <Compile Include="Service\D2\External\BuyExtendedResponse.cs" />
+    <Compile Include="Service\D2\External\CashInExtendedRequest.cs" />
+    <Compile Include="Service\D2\External\CashInExtendedResponse.cs" />
+    <Compile Include="Service\D2\External\BankListRequest.cs" />
+    <Compile Include="Service\D2\External\BankListResponse.cs" />
+    <Compile Include="Service\D2\External\BankListExtendedRequest.cs" />
+    <Compile Include="Service\D2\External\BankListExtendedResponse.cs" />
+    <Compile Include="Service\D2\External\SummaryExtendedRequest.cs" />
+    <Compile Include="Service\D2\External\SummaryExtendedResponse.cs" />
+    <Compile Include="Service\D2\External\GetLastTransactionsExtendedRequest.cs" />
+    <Compile Include="Service\D2\External\GetLastTransactionsExtendedResponse.cs" />
+    <Compile Include="Service\D2\External\CreateCouponWithRecipientExtendedRequest.cs" />
+    <Compile Include="Service\D2\External\CreateCouponWithRecipientExtendedResponse.cs" />
+    <Compile Include="Service\D2\External\SellExtendedRequest.cs" />
+    <Compile Include="Service\D2\External\SellExtendedResponse.cs" />
+    <Compile Include="Service\D2\External\SummaryRequest.cs" />
+    <Compile Include="Service\D2\External\SummaryResponse.cs" />
+    <Compile Include="Service\D2\Internal\BankListRequestInternal.cs" />
+    <Compile Include="Service\D2\Internal\BankListResponseInternal.cs" />
+    <Compile Include="Service\D2\Internal\SummaryRequestInternal.cs" />
+    <Compile Include="Service\D2\Internal\SummaryResponseInternal.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Utiba\CashInProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Utiba\ChangePinProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Utiba\UnMapAgentToGroupProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Utiba\MapAgentToGroupProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Utiba\GetAgentGroupsProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Utiba\GetGroupListProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Utiba\GetProductListProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Utiba\GetChildListProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Utiba\GetParentListProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Utiba\GetAgentInfoProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Utiba\GetBankListProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Utiba\TransferProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Utiba\GetLastTransactionsProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Utiba\CreateMoviPinProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Utiba\MoviPaymentProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Utiba\GetSalesSummaryProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Utiba\RegisterDebtPayment.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Utiba\Utils.cs" />
+    <Compile Include="Service\ExtendedApi\Public\ExtendedApi.svc.cs">
+      <DependentUpon>ExtendedApi.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Service\ExtendedApi\DataContract\GetBalanceRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\GetBalanceResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Common\AGenericApiResponse.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Common\AuthenticationData.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\Common\ASecuredApiRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\TopUpRequest.cs" />
+    <Compile Include="Service\ExtendedApi\DataContract\TopUpResponse.cs" />
+    <Compile Include="Service\ExtendedApi\Public\IExtendedApi.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\IServiceProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\ServiceProviderFactory.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Utiba\AUtibaProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Utiba\BuyStockProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Utiba\TransferStockProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Utiba\GetBalanceProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Utiba\Custom\IncludeHttpUserAgentBehaviorExtensionElement.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Utiba\Custom\IncludeHttpUserAgentMessageInspector.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Utiba\Custom\IncludeHttpUserAgentEndpointBehavior.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Utiba\GetSessionProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Utiba\GetTransactionProvider.cs" />
+    <Compile Include="Service\ExtendedApi\Provider\Utiba\TopUpProvider.cs" />
+    <Compile Include="Service\External\TopUpExtendedRequest.cs" />
+    <Compile Include="Service\External\TopUpExtendedResponse.cs" />
+    <Compile Include="Service\ITopUpServiceContract.cs" />
+    <Compile Include="Service\D2\D2.svc.cs">
+      <DependentUpon>D2.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Service\D2\External\AccountPaymentRequest.cs" />
+    <Compile Include="Service\D2\External\AccountPaymentResponse.cs" />
+    <Compile Include="Service\D2\External\BalanceRequest.cs" />
+    <Compile Include="Service\D2\External\BalanceResponse.cs" />
+    <Compile Include="Service\D2\External\CashInRequest.cs" />
+    <Compile Include="Service\D2\External\CashInResponse.cs" />
+    <Compile Include="Service\D2\External\GetLastTransactionsRequest.cs" />
+    <Compile Include="Service\D2\External\GetLastTransactionsResponse.cs" />
+    <Compile Include="Service\D2\External\CreateCouponWithRecipientRequest.cs" />
+    <Compile Include="Service\D2\External\CreateCouponWithRecipientResponse.cs" />
+    <Compile Include="Service\D2\External\TransferExtendedRequest.cs" />
+    <Compile Include="Service\D2\External\TransferExtendedResponse.cs" />
+    <Compile Include="Service\D2\External\TransferRequest.cs" />
+    <Compile Include="Service\D2\External\TransferResponse.cs" />
+    <Compile Include="Service\D2\External\BuyRequest.cs" />
+    <Compile Include="Service\D2\External\BuyResponse.cs" />
+    <Compile Include="Service\D2\External\SellRequest.cs" />
+    <Compile Include="Service\D2\External\SellResponse.cs" />
+    <Compile Include="Service\D2\ID2.cs" />
+    <Compile Include="Service\D2\Internal\AccountPaymentRequestInternal.cs" />
+    <Compile Include="Service\D2\Internal\AccountPaymentResponseInternal.cs" />
+    <Compile Include="Service\Internal\BalanceRequestInternal.cs" />
+    <Compile Include="Service\Internal\BalanceResponseInternal.cs" />
+    <Compile Include="Service\D2\Internal\CashInRequestInternal.cs" />
+    <Compile Include="Service\D2\Internal\CashInResponseInternal.cs" />
+    <Compile Include="Service\D2\Internal\GetLastTransactionsRequestInternal.cs" />
+    <Compile Include="Service\D2\Internal\GetLastTransactionsResponseInternal.cs" />
+    <Compile Include="Service\D2\Internal\TransferRequestInternal.cs" />
+    <Compile Include="Service\D2\Internal\TransferResponseInternal.cs" />
+    <Compile Include="Service\D2\Internal\BuyRequestInternal.cs" />
+    <Compile Include="Service\D2\Internal\BuyResponseInternal.cs" />
+    <Compile Include="Service\D2\Internal\SellRequestInternal.cs" />
+    <Compile Include="Service\D2\Internal\SellResponseInternal.cs" />
+    <Compile Include="Service\External\ChagePinRequest.cs" />
+    <Compile Include="Service\External\ChangePinResponse.cs" />
+    <Compile Include="Service\External\ApiKeyValuePair.cs" />
+    <Compile Include="Service\IChangePinContract.cs" />
+    <Compile Include="Service\Internal\ChangePinRequestInternal.cs" />
+    <Compile Include="Service\Internal\ChangePinResponseInternal.cs" />
+    <Compile Include="Service\ILoginServiceContract.cs" />
+    <Compile Include="Service\Internal\LoginResponseInternal.cs" />
+    <Compile Include="Service\Internal\LoginRequestInternal.cs" />
+    <Compile Include="Service\Logger.cs" />
+    <Compile Include="Service\External\LoginResponse.cs" />
+    <Compile Include="Service\External\LoginRequest.cs" />
+    <Compile Include="Service\External\GetSessionRequest.cs" />
+    <Compile Include="Service\External\GetSessionResponse.cs" />
+    <Compile Include="Service\IExtendedMethodServiceContract.cs" />
+    <Compile Include="Service\ISessionServiceContract.cs" />
+    <Compile Include="Service\Management\External\AgentInfo.cs" />
+    <Compile Include="Service\Management\External\UnMapAgentToGroupExtendedRequest.cs" />
+    <Compile Include="Service\Management\External\UnMapAgentToGroupExtendedResponse.cs" />
+    <Compile Include="Service\Management\External\MapAgentToGroupExtendedRequest.cs" />
+    <Compile Include="Service\Management\External\MapAgentToGroupExtendedResponse.cs" />
+    <Compile Include="Service\Management\External\GetProductsExtendedRequest.cs" />
+    <Compile Include="Service\Management\External\GetProductsExtendedResponse.cs" />
+    <Compile Include="Service\Management\External\GetParentListByReferenceIDExtendedRequest.cs" />
+    <Compile Include="Service\Management\External\GetParentListByReferenceIDExtendedResponse.cs" />
+    <Compile Include="Service\Management\External\GetChildListByReferenceExtendedRequest.cs" />
+    <Compile Include="Service\Management\External\GetChildListByReferenceExtendedResponse.cs" />
+    <Compile Include="Service\Management\External\GetAllAgentGroupsExtendedRequest.cs" />
+    <Compile Include="Service\Management\External\GetAllAgentGroupsExtendedResponse.cs" />
+    <Compile Include="Service\Management\External\GetAgentListExtendedRequest.cs" />
+    <Compile Include="Service\Management\External\GetAgentListExtendedResponse.cs" />
+    <Compile Include="Service\Management\External\GetAgentGroupsExtendedRequest.cs" />
+    <Compile Include="Service\Management\External\GetAgentGroupsExtendedResponse.cs" />
+    <Compile Include="Service\Management\External\GetAgentByReferenceExtendedRequest.cs" />
+    <Compile Include="Service\Management\External\GetAgentByReferenceExtendedResponse.cs" />
+    <Compile Include="Service\Management\External\UnMapAgentToGroupRequest.cs" />
+    <Compile Include="Service\Management\External\UnMapAgentToGroupResponse.cs" />
+    <Compile Include="Service\Management\External\MapAgentToGroupRequest.cs" />
+    <Compile Include="Service\Management\External\MapAgentToGroupResponse.cs" />
+    <Compile Include="Service\Management\External\GetAllAgentGroupsRequest.cs" />
+    <Compile Include="Service\Management\External\GetAllAgentGroupsResponse.cs" />
+    <Compile Include="Service\Management\External\GetAgentListRequest.cs" />
+    <Compile Include="Service\Management\External\GetAgentListResponse.cs" />
+    <Compile Include="Service\Management\External\GetProductsRequest.cs" />
+    <Compile Include="Service\Management\External\GetProductsResponse.cs" />
+    <Compile Include="Service\Management\External\GroupInfo.cs" />
+    <Compile Include="Service\Management\External\GetAgentGroupsRequest.cs" />
+    <Compile Include="Service\Management\External\GetAgentGroupsResponse.cs" />
+    <Compile Include="Service\Management\External\GetChildListByReferenceRequest.cs" />
+    <Compile Include="Service\Management\External\GetChildListByReferenceResponse.cs" />
+    <Compile Include="Service\D2\External\CouponTransferExtendedRequest.cs" />
+    <Compile Include="Service\D2\External\CouponTransferExtendedResponse.cs" />
+    <Compile Include="Service\D2\External\CouponTransferRequest.cs" />
+    <Compile Include="Service\D2\External\CouponTransferResponse.cs" />
+    <Compile Include="Service\D2\External\CreateCouponExtendedRequest.cs" />
+    <Compile Include="Service\D2\External\CreateCouponExtendedResponse.cs" />
+    <Compile Include="Service\D2\External\CreateCouponRequest.cs" />
+    <Compile Include="Service\D2\External\CreateCouponResponse.cs" />
+    <Compile Include="Service\MoviPin\External\MoviPaymentExtendedRequest.cs" />
+    <Compile Include="Service\MoviPin\External\MoviPaymentExtendedResponse.cs" />
+    <Compile Include="Service\MoviPin\External\MoviPaymentResponse.cs" />
+    <Compile Include="Service\MoviPin\External\MoviPaymentRequest.cs" />
+    <Compile Include="Service\MoviPin\IMoviPin.cs" />
+    <Compile Include="Service\D2\Internal\CouponTransferRequestInternal.cs" />
+    <Compile Include="Service\D2\Internal\CouponTransferResponseInternal.cs" />
+    <Compile Include="Service\D2\Internal\CreateCouponRequestInternal.cs" />
+    <Compile Include="Service\D2\Internal\CreateCouponResponseInternal.cs" />
+    <Compile Include="Service\MoviPin\Internal\MoviPaymentRequestInternal.cs" />
+    <Compile Include="Service\MoviPin\Internal\MoviPaymentResponseInternal.cs" />
+    <Compile Include="Service\MoviPin\MoviPin.svc.cs">
+      <DependentUpon>MoviPin.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Service\Management\External\GetParentListByReferenceIDRequest.cs" />
+    <Compile Include="Service\Management\External\GetParentListByReferenceIDResponse.cs" />
+    <Compile Include="Service\Management\External\GetAgentByReferenceRequest.cs" />
+    <Compile Include="Service\Management\External\GetAgentByReferenceResponse.cs" />
+    <Compile Include="Service\Management\IManagement.cs" />
+    <Compile Include="Service\Management\Internal\AgentInfoInternal.cs" />
+    <Compile Include="Service\Management\Internal\UnMapAgentToGroupRequestInternal.cs" />
+    <Compile Include="Service\Management\Internal\UnMapAgentToGroupResponseInternal.cs" />
+    <Compile Include="Service\Management\Internal\MapAgentToGroupRequestInternal.cs" />
+    <Compile Include="Service\Management\Internal\MapAgentToGroupResponseInternal.cs" />
+    <Compile Include="Service\Management\Internal\GetAllAgentGroupsRequestInternal.cs" />
+    <Compile Include="Service\Management\Internal\GetAllAgentGroupsResponseInternal.cs" />
+    <Compile Include="Service\Management\Internal\GetAgentListRequestInternal.cs" />
+    <Compile Include="Service\Management\Internal\GetAgentListResponseInternal.cs" />
+    <Compile Include="Service\Management\Internal\GetProductsRequestInternal.cs" />
+    <Compile Include="Service\Management\Internal\GetProductsResponseInternal.cs" />
+    <Compile Include="Service\Management\Internal\GetAgentGroupsRequestInternal.cs" />
+    <Compile Include="Service\Management\Internal\GetAgentGroupsResponseInternal.cs" />
+    <Compile Include="Service\Management\Internal\GetChildListByReferenceRequestInternal.cs" />
+    <Compile Include="Service\Management\Internal\GetChildListByReferenceResponseInternal.cs" />
+    <Compile Include="Service\Management\Internal\GetAgentByReferenceRequestInternal.cs" />
+    <Compile Include="Service\Management\Internal\GetAgentByReferenceResponseInternal.cs" />
+    <Compile Include="Service\Management\Internal\GetParentListByReferenceIDRequestInternal.cs" />
+    <Compile Include="Service\Management\Internal\GetParentListByReferenceIDResponseInternal.cs" />
+    <Compile Include="Service\Management\Internal\GroupInfoInternal.cs" />
+    <Compile Include="Service\Management\Management.svc.cs">
+      <DependentUpon>Management.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Service\Registration\External\GetProvinceCitiesRequest.cs" />
+    <Compile Include="Service\Registration\External\GetProvinceCitiesResponse.cs" />
+    <Compile Include="Service\Registration\External\GetProvincesResponse.cs" />
+    <Compile Include="Service\Registration\External\GetProvincesRequest.cs" />
+    <Compile Include="Service\Registration\External\RegisterAgentBulkResponse.cs" />
+    <Compile Include="Service\Registration\External\RegisterAgentBulkRequest.cs" />
+    <Compile Include="Service\External\Gender.cs" />
+    <Compile Include="Service\Registration\External\RegisterAgentRequest.cs" />
+    <Compile Include="Service\Registration\External\RegisterAgentResponse.cs" />
+    <Compile Include="Service\Internal\Gender.cs" />
+    <Compile Include="Service\Registration\Internal\RegisterAgentRequestInternal.cs" />
+    <Compile Include="Service\Registration\Internal\RegisterAgentResponseInternal.cs" />
+    <Compile Include="Service\Sales\External\NewSaleWithExternalIDExtendedRequest.cs" />
+    <Compile Include="Service\Sales\External\NewSaleWithExternalIDExtendedResponse.cs" />
+    <Compile Include="Service\Sales\External\SaleStateByExternalIDExtendedRequest.cs" />
+    <Compile Include="Service\Sales\External\SaleStateByExternalIDExtendedResponse.cs" />
+    <Compile Include="Service\Sales\External\GetTransactionRequestParameterType.cs" />
+    <Compile Include="Service\Sales\External\SaleStateByExternalIDRequest.cs" />
+    <Compile Include="Service\Sales\External\SaleStateByExternalIDResponse.cs" />
+    <Compile Include="Service\Sales\External\BalanceRequest.cs" />
+    <Compile Include="Service\Sales\External\BalanceResponse.cs" />
+    <Compile Include="Service\Sales\External\BalanceExtendedRequest.cs" />
+    <Compile Include="Service\Sales\External\BalanceExtendedResponse.cs" />
+    <Compile Include="Service\Sales\External\NewSaleWithExternalIDRequest.cs" />
+    <Compile Include="Service\Sales\External\NewSaleWithExternalIDResponse.cs" />
+    <Compile Include="Service\Sales\External\GetTransactionExtendedResponse.cs" />
+    <Compile Include="Service\Sales\External\GetTransactionExtendedRequest.cs" />
+    <Compile Include="Service\Sales\External\GetTransactionResponse.cs" />
+    <Compile Include="Service\Sales\External\GetTransactionRequest.cs" />
+    <Compile Include="Service\Sales\Internal\GetTransactionRequestInternal.cs" />
+    <Compile Include="Service\Sales\Internal\GetTransactionRequestInternalParameterType.cs" />
+    <Compile Include="Service\Sales\Internal\GetTransactionResponseInternal.cs" />
+    <Compile Include="Service\Internal\TopUpRequestInternal.cs" />
+    <Compile Include="Service\Internal\TopUpResponseInternal.cs" />
+    <Compile Include="Service\External\TopUpResponse.cs" />
+    <Compile Include="Service\External\TopUpRequest.cs" />
+    <Compile Include="Service\SessionApiRequest.cs" />
+    <Compile Include="Service\ApiResponse.cs" />
+    <Compile Include="Service\ExtendedApiRequest.cs" />
+    <Compile Include="Service\Registration\Registration.svc.cs">
+      <DependentUpon>Registration.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Service\Registration\IRegistration.cs" />
+    <Compile Include="Service\Sales\ISales.cs" />
+    <Compile Include="Service\Sales\Sales.svc.cs">
+      <DependentUpon>Sales.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Service\AuthenticationProvider.cs" />
+    <Compile Include="Service\Stock\External\BuyStockRequest.cs" />
+    <Compile Include="Service\Stock\External\BuyStockResponse.cs" />
+    <Compile Include="Service\Stock\External\BuyStockExtendedRequest.cs" />
+    <Compile Include="Service\Stock\External\BuyStockExtendedResponse.cs" />
+    <Compile Include="Service\Stock\External\PayStockExtendedRequest.cs" />
+    <Compile Include="Service\Stock\External\PayStockExtendedResponse.cs" />
+    <Compile Include="Service\Stock\External\TransferStockExtendedRequest.cs" />
+    <Compile Include="Service\Stock\External\TransferStockExtendedResponse.cs" />
+    <Compile Include="Service\Stock\External\PayStockRequest.cs" />
+    <Compile Include="Service\Stock\External\PayStockResponse.cs" />
+    <Compile Include="Service\Stock\External\TransferStockRequest.cs" />
+    <Compile Include="Service\Stock\External\TransferStockResponse.cs" />
+    <Compile Include="Service\Stock\Internal\BuyStockRequestInternal.cs" />
+    <Compile Include="Service\Stock\Internal\BuyStockResponseInternal.cs" />
+    <Compile Include="Service\Stock\Internal\PayStockRequestInternal.cs" />
+    <Compile Include="Service\Stock\Internal\PayStockResponseInternal.cs" />
+    <Compile Include="Service\Stock\Internal\TransferStockRequestInternal.cs" />
+    <Compile Include="Service\Stock\Internal\TransferStockResponseInternal.cs" />
+    <Compile Include="Service\Stock\IStock.cs" />
+    <Compile Include="Service\Stock\Stock.svc.cs">
+      <DependentUpon>Stock.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Service\TopUpProvider.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\IBank\" />
+    <WCFMetadataStorage Include="Service References\MultiPay472\" />
+    <WCFMetadataStorage Include="Service References\PSE_WS\" />
+    <WCFMetadataStorage Include="Service References\QueryPaymentReference\" />
+    <WCFMetadataStorage Include="Service References\SmsApi\" />
+    <WCFMetadataStorage Include="Service References\TDC_WS\" />
+    <WCFMetadataStorage Include="Service References\Utiba\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Data\UtibaRegistration.dbml.layout">
+      <DependentUpon>UtibaRegistration.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Data\MovilBase.dbml.layout">
+      <DependentUpon>MovilBase.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="https://www.enlineapagos.com/secure/webservices/WS_PSE.do%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\PSE\</RelPath>
+      <UpdateFromURL>https://www.enlineapagos.com/secure/webservices/WS_PSE.do%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Movilway_API_PSE_PSE</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:12000/telemo.xml">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\SMSDispatch\</RelPath>
+      <UpdateFromURL>http://localhost:12000/telemo.xml</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Movilway_API_SMSDispatch_Dispatch_SMS_web__service</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://ws-co-dev.movilway.net:5974/Sales/LogisticsInterface.asmx%3fWSDL">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\KinacuLogisticsWebService\</RelPath>
+      <UpdateFromURL>http://ws-co-dev.movilway.net:5974/Sales/LogisticsInterface.asmx%3fWSDL</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Movilway_API_KinacuLogisticsWebService_LogisticsInterface</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://ws-do-dev.movilway.net:5974/Sales/ManagementInterface.asmx%3fWSDL">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\KinacuManagementWebService\</RelPath>
+      <UpdateFromURL>http://ws-do-dev.movilway.net:5974/Sales/ManagementInterface.asmx%3fWSDL</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Movilway_API_KinacuManagementWebService_ManagementInterface</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://ws-ve.movilway.net:5974/Sales/SaleInterface.asmx%3fWSDL">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\KinacuWebService\</RelPath>
+      <UpdateFromURL>http://ws-ve.movilway.net:5974/Sales/SaleInterface.asmx%3fWSDL</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Movilway_API_KinacuWebService_SaleInterface</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Movilway.Logging\Movilway.Logging\Movilway.Logging.csproj">
+      <Project>{3dadef14-bc44-4fff-ad50-0bfe8e10cb40}</Project>
+      <Name>Movilway.Logging</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ReleaseSSL|x64'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ReleaseSSL|x86'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>54689</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:54689/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="https://puntodepago.plataformadepago.com/secure/webservices" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="https://puntodepago.plataformadepago.com/secure/webservices" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="https://puntodepago.plataformadepago.com/secure/webservices">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="Verificar_Tarjeta_TipoRequest">
+    <wsdl:part name="usuario" type="xsd:string" />
+    <wsdl:part name="clave" type="xsd:string" />
+    <wsdl:part name="llavemd5" type="xsd:string" />
+    <wsdl:part name="tctipo" type="xsd:string" />
+    <wsdl:part name="tcnumero" type="xsd:string" />
+    <wsdl:part name="ip" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="Verificar_Tarjeta_TipoResponse">
+    <wsdl:part name="respuesta" type="xsd:string" />
+    <wsdl:part name="codigoderespuesta" type="xsd:string" />
+    <wsdl:part name="mensajesistema" type="xsd:string" />
+    <wsdl:part name="fechatransaccion" type="xsd:string" />
+    <wsdl:part name="IPproveedordeinternet" type="xsd:string" />
+    <wsdl:part name="IPlatitud" type="xsd:string" />
+    <wsdl:part name="IPlongitud" type="xsd:string" />
+    <wsdl:part name="IPciudad" type="xsd:string" />
+    <wsdl:part name="IPpais" type="xsd:string" />
+    <wsdl:part name="IPcontinente" type="xsd:string" />
+    <wsdl:part name="IPzonahoraria" type="xsd:string" />
+    <wsdl:part name="IPcodigoisopais" type="xsd:string" />
+    <wsdl:part name="Tipo" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="Procesar_TarjetaRequest">
+    <wsdl:part name="usuario" type="xsd:string" />
+    <wsdl:part name="clave" type="xsd:string" />
+    <wsdl:part name="llavemd5" type="xsd:string" />
+    <wsdl:part name="naturaleza" type="xsd:string" />
+    <wsdl:part name="nombres" type="xsd:string" />
+    <wsdl:part name="apellidos" type="xsd:string" />
+    <wsdl:part name="tipodedocumentoidentidad" type="xsd:string" />
+    <wsdl:part name="numerodedocumentoidentidad" type="xsd:string" />
+    <wsdl:part name="tctipo" type="xsd:string" />
+    <wsdl:part name="tipocuenta" type="xsd:string" />
+    <wsdl:part name="tcnumero" type="xsd:string" />
+    <wsdl:part name="tcmesexpiracion" type="xsd:string" />
+    <wsdl:part name="tcanoexpiracion" type="xsd:string" />
+    <wsdl:part name="tccodigodeseguridad" type="xsd:string" />
+    <wsdl:part name="cuotas" type="xsd:string" />
+    <wsdl:part name="direccion" type="xsd:string" />
+    <wsdl:part name="codigopostal" type="xsd:string" />
+    <wsdl:part name="pais" type="xsd:string" />
+    <wsdl:part name="ciudad" type="xsd:string" />
+    <wsdl:part name="telefono" type="xsd:string" />
+    <wsdl:part name="email" type="xsd:string" />
+    <wsdl:part name="ip" type="xsd:string" />
+    <wsdl:part name="moneda" type="xsd:string" />
+    <wsdl:part name="valor" type="xsd:string" />
+    <wsdl:part name="iva" type="xsd:string" />
+    <wsdl:part name="baseiva" type="xsd:string" />
+    <wsdl:part name="descripcionpago" type="xsd:string" />
+    <wsdl:part name="extra1" type="xsd:string" />
+    <wsdl:part name="extra2" type="xsd:string" />
+    <wsdl:part name="extra3" type="xsd:string" />
+    <wsdl:part name="fotografiaurl" type="xsd:string" />
+    <wsdl:part name="grabacionurl" type="xsd:string" />
+    <wsdl:part name="llamadaconfirmacionnumero" type="xsd:string" />
+    <wsdl:part name="facebook" type="xsd:string" />
+    <wsdl:part name="verifiedcc" type="xsd:string" />
+    <wsdl:part name="firma" type="xsd:string" />
+    <wsdl:part name="debitoautomatico_periodo" type="xsd:string" />
+    <wsdl:part name="debitoautomatico_desde" type="xsd:string" />
+    <wsdl:part name="debitoautomatico_hasta" type="xsd:string" />
+    <wsdl:part name="latitud" type="xsd:string" />
+    <wsdl:part name="longitud" type="xsd:string" />
+    <wsdl:part name="exactitud" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="Procesar_TarjetaResponse">
+    <wsdl:part name="respuesta" type="xsd:string" />
+    <wsdl:part name="codigoderespuesta" type="xsd:string" />
+    <wsdl:part name="mensajesistema" type="xsd:string" />
+    <wsdl:part name="fechatransaccion" type="xsd:string" />
+    <wsdl:part name="numerodeautorizacion" type="xsd:string" />
+    <wsdl:part name="numerotransaccion" type="xsd:string" />
+    <wsdl:part name="respuestadelared" type="xsd:string" />
+    <wsdl:part name="logdelared" type="xsd:string" />
+    <wsdl:part name="IPproveedordeinternet" type="xsd:string" />
+    <wsdl:part name="IPlatitud" type="xsd:string" />
+    <wsdl:part name="IPlongitud" type="xsd:string" />
+    <wsdl:part name="IPciudad" type="xsd:string" />
+    <wsdl:part name="IPpais" type="xsd:string" />
+    <wsdl:part name="IPcontinente" type="xsd:string" />
+    <wsdl:part name="IPzonahoraria" type="xsd:string" />
+    <wsdl:part name="IPcodigoisopais" type="xsd:string" />
+    <wsdl:part name="TARJETAbanco" type="xsd:string" />
+    <wsdl:part name="TARJETApais" type="xsd:string" />
+    <wsdl:part name="TARJETAtipo" type="xsd:string" />
+    <wsdl:part name="NombreEmpresa" type="xsd:string" />
+    <wsdl:part name="CodigoUnico" type="xsd:string" />
+    <wsdl:part name="Terminal" type="xsd:string" />
+    <wsdl:part name="TipoCuenta" type="xsd:string" />
+    <wsdl:part name="TarjetaNumero" type="xsd:string" />
+    <wsdl:part name="HoraTransaccion" type="xsd:string" />
+    <wsdl:part name="Referencia" type="xsd:string" />
+    <wsdl:part name="Recibo" type="xsd:string" />
+    <wsdl:part name="CodigoRespuesta" type="xsd:string" />
+    <wsdl:part name="DescripcionCodigoRespuesta" type="xsd:string" />
+    <wsdl:part name="MonedaDeConversion" type="xsd:string" />
+    <wsdl:part name="ValorTotalConversion" type="xsd:string" />
+    <wsdl:part name="ValorIvaConversion" type="xsd:string" />
+    <wsdl:part name="ValorBaseIvaConversion" type="xsd:string" />
+    <wsdl:part name="AcuerdoDebitoAutomatico" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="Reversar_TransaccionRequest">
+    <wsdl:part name="usuario" type="xsd:string" />
+    <wsdl:part name="clave" type="xsd:string" />
+    <wsdl:part name="llavemd5" type="xsd:string" />
+    <wsdl:part name="numerodetransaccion" type="xsd:string" />
+    <wsdl:part name="numerodeautorizacion" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="Reversar_TransaccionResponse">
+    <wsdl:part name="respuesta" type="xsd:string" />
+    <wsdl:part name="codigoderespuesta" type="xsd:string" />
+    <wsdl:part name="mensajesistema" type="xsd:string" />
+    <wsdl:part name="fechatransaccion" type="xsd:string" />
+    <wsdl:part name="numerodeautorizacion" type="xsd:string" />
+    <wsdl:part name="numerodetransaccion" type="xsd:string" />
+    <wsdl:part name="respuestadelared" type="xsd:string" />
+    <wsdl:part name="logdelared" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="Confirmar_TransaccionRequest">
+    <wsdl:part name="usuario" type="xsd:string" />
+    <wsdl:part name="clave" type="xsd:string" />
+    <wsdl:part name="llavemd5" type="xsd:string" />
+    <wsdl:part name="numerodetransaccion" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="Confirmar_TransaccionResponse">
+    <wsdl:part name="respuesta" type="xsd:string" />
+    <wsdl:part name="codigoderespuesta" type="xsd:string" />
+    <wsdl:part name="mensajesistema" type="xsd:string" />
+    <wsdl:part name="fechatransaccion" type="xsd:string" />
+    <wsdl:part name="numerodeautorizacion" type="xsd:string" />
+    <wsdl:part name="numerodetransaccion" type="xsd:string" />
+    <wsdl:part name="respuestadelared" type="xsd:string" />
+    <wsdl:part name="logdelared" type="xsd:string" />
+    <wsdl:part name="IPproveedordeinternet" type="xsd:string" />
+    <wsdl:part name="IPlatitud" type="xsd:string" />
+    <wsdl:part name="IPlongitud" type="xsd:string" />
+    <wsdl:part name="IPciudad" type="xsd:string" />
+    <wsdl:part name="IPpais" type="xsd:string" />
+    <wsdl:part name="IPcontinente" type="xsd:string" />
+    <wsdl:part name="IPzonahoraria" type="xsd:string" />
+    <wsdl:part name="IPcodigoisopais" type="xsd:string" />
+    <wsdl:part name="TARJETAbanco" type="xsd:string" />
+    <wsdl:part name="TARJETApais" type="xsd:string" />
+    <wsdl:part name="TARJETAtipo" type="xsd:string" />
+    <wsdl:part name="extra1" type="xsd:string" />
+    <wsdl:part name="extra2" type="xsd:string" />
+    <wsdl:part name="extra3" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="Email_De_CobroRequest">
+    <wsdl:part name="usuario" type="xsd:string" />
+    <wsdl:part name="clave" type="xsd:string" />
+    <wsdl:part name="llavemd5" type="xsd:string" />
+    <wsdl:part name="email" type="xsd:string" />
+    <wsdl:part name="referencia" type="xsd:string" />
+    <wsdl:part name="moneda" type="xsd:string" />
+    <wsdl:part name="valor" type="xsd:string" />
+    <wsdl:part name="iva" type="xsd:string" />
+    <wsdl:part name="baseiva" type="xsd:string" />
+    <wsdl:part name="descripcion" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="Email_De_CobroResponse">
+    <wsdl:part name="respuesta" type="xsd:string" />
+    <wsdl:part name="mensajesistema" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="Link_De_CobroRequest">
+    <wsdl:part name="usuario" type="xsd:string" />
+    <wsdl:part name="clave" type="xsd:string" />
+    <wsdl:part name="llavemd5" type="xsd:string" />
+    <wsdl:part name="referencia" type="xsd:string" />
+    <wsdl:part name="moneda" type="xsd:string" />
+    <wsdl:part name="valor" type="xsd:string" />
+    <wsdl:part name="iva" type="xsd:string" />
+    <wsdl:part name="baseiva" type="xsd:string" />
+    <wsdl:part name="descripcion" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="Link_De_CobroResponse">
+    <wsdl:part name="respuesta" type="xsd:string" />
+    <wsdl:part name="mensajesistema" type="xsd:string" />
+    <wsdl:part name="link" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="PasarelaRequest">
+    <wsdl:part name="usuario" type="xsd:string" />
+    <wsdl:part name="llavemd5" type="xsd:string" />
+    <wsdl:part name="referencia" type="xsd:string" />
+    <wsdl:part name="moneda" type="xsd:string" />
+    <wsdl:part name="valor" type="xsd:string" />
+    <wsdl:part name="iva" type="xsd:string" />
+    <wsdl:part name="baseiva" type="xsd:string" />
+    <wsdl:part name="descripcion" type="xsd:string" />
+    <wsdl:part name="urlback" type="xsd:string" />
+    <wsdl:part name="documentonumero" type="xsd:string" />
+    <wsdl:part name="nombres" type="xsd:string" />
+    <wsdl:part name="apellidos" type="xsd:string" />
+    <wsdl:part name="email" type="xsd:string" />
+    <wsdl:part name="direccion" type="xsd:string" />
+    <wsdl:part name="telefono" type="xsd:string" />
+    <wsdl:part name="debitoautomatico_periodo" type="xsd:string" />
+    <wsdl:part name="debitoautomatico_desde" type="xsd:string" />
+    <wsdl:part name="debitoautomatico_hasta" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="PasarelaResponse">
+    <wsdl:part name="respuesta" type="xsd:string" />
+    <wsdl:part name="mensajesistema" type="xsd:string" />
+    <wsdl:part name="url" type="xsd:string" />
+    <wsdl:part name="transaccionnro" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:portType name="ProcesarTarjetaCreditoPortType">
+    <wsdl:operation name="Verificar_Tarjeta_Tipo">
+      <wsdl:input message="tns:Verificar_Tarjeta_TipoRequest" />
+      <wsdl:output message="tns:Verificar_Tarjeta_TipoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="Procesar_Tarjeta">
+      <wsdl:input message="tns:Procesar_TarjetaRequest" />
+      <wsdl:output message="tns:Procesar_TarjetaResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="Reversar_Transaccion">
+      <wsdl:input message="tns:Reversar_TransaccionRequest" />
+      <wsdl:output message="tns:Reversar_TransaccionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="Confirmar_Transaccion">
+      <wsdl:input message="tns:Confirmar_TransaccionRequest" />
+      <wsdl:output message="tns:Confirmar_TransaccionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="Email_De_Cobro">
+      <wsdl:input message="tns:Email_De_CobroRequest" />
+      <wsdl:output message="tns:Email_De_CobroResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="Link_De_Cobro">
+      <wsdl:input message="tns:Link_De_CobroRequest" />
+      <wsdl:output message="tns:Link_De_CobroResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="Pasarela">
+      <wsdl:input message="tns:PasarelaRequest" />
+      <wsdl:output message="tns:PasarelaResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ProcesarTarjetaCreditoBinding" type="tns:ProcesarTarjetaCreditoPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="Verificar_Tarjeta_Tipo">
+      <soap:operation soapAction="https://puntodepago.plataformadepago.com/secure/webservices/ProcesarTarjetaCredito.do/Verificar_Tarjeta_Tipo" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://puntodepago.plataformadepago.com/secure/webservices" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://puntodepago.plataformadepago.com/secure/webservices" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Procesar_Tarjeta">
+      <soap:operation soapAction="https://puntodepago.plataformadepago.com/secure/webservices/ProcesarTarjetaCredito.do/Procesar_Tarjeta" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://puntodepago.plataformadepago.com/secure/webservices" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://puntodepago.plataformadepago.com/secure/webservices" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Reversar_Transaccion">
+      <soap:operation soapAction="https://puntodepago.plataformadepago.com/secure/webservices/ProcesarTarjetaCredito.do/Reversar_Transaccion" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://puntodepago.plataformadepago.com/secure/webservices" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://puntodepago.plataformadepago.com/secure/webservices" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Confirmar_Transaccion">
+      <soap:operation soapAction="https://puntodepago.plataformadepago.com/secure/webservices/ProcesarTarjetaCredito.do/Confirmar_Transaccion" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://puntodepago.plataformadepago.com/secure/webservices" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://puntodepago.plataformadepago.com/secure/webservices" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Email_De_Cobro">
+      <soap:operation soapAction="https://puntodepago.plataformadepago.com/secure/webservices/ProcesarTarjetaCredito.do/Email_De_Cobro" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://puntodepago.plataformadepago.com/secure/webservices" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://puntodepago.plataformadepago.com/secure/webservices" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Link_De_Cobro">
+      <soap:operation soapAction="https://puntodepago.plataformadepago.com/secure/webservices/ProcesarTarjetaCredito.do/Link_De_Cobro" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://puntodepago.plataformadepago.com/secure/webservices" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://puntodepago.plataformadepago.com/secure/webservices" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Pasarela">
+      <soap:operation soapAction="https://puntodepago.plataformadepago.com/secure/webservices/ProcesarTarjetaCredito.do/Pasarela" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="https://puntodepago.plataformadepago.com/secure/webservices" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="https://puntodepago.plataformadepago.com/secure/webservices" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ProcesarTarjetaCredito">
+    <wsdl:port name="ProcesarTarjetaCreditoPort" binding="tns:ProcesarTarjetaCreditoBinding">
+      <soap:address location="https://puntodepago.plataformadepago.com:443/secure/webservices/ProcesarTarjetaCredito.do" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
